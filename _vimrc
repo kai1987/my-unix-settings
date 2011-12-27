@@ -79,8 +79,8 @@ set iskeyword+=_,$,@,%,#,-
 syntax on
  
 " 高亮字符，让其不受100列限制
-:highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
-:match OverLength '\%101v.*'
+":highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
+":match OverLength '\%101v.*'
  
 " 状态行颜色
 highlight StatusLine guifg=SlateBlue guibg=Yellow
@@ -201,18 +201,8 @@ set smarttab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示
  
-if has("autocmd")
-   autocmd FileType xml,html,c,cs,java,perl,shell,bash,cpp,python,vim,php,ruby,as,js set number
-   autocmd FileType xml,html vmap <C-o> <ESC>'<i<!--<ESC>o<ESC>'>o-->
-   autocmd FileType java,c,cpp,cs vmap <C-o> <ESC>'<o
-   autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl,python setlocal textwidth=100
-   autocmd Filetype html,xml,xsl source $VIMRUNTIME/plugin/closetag.vim
-   autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal g`\"" |
-      \ endif
-endif " has("autocmd")
- 
+set number
+
 "设置Java代码的自动补全
 au FileType java setlocal omnifunc=javacomplete#Complete
  
@@ -229,7 +219,7 @@ imap <leader>; <C-X><C-O>
 " map <F6> :call Run()<CR>
  
 "设置代码格式化快捷键F3
-map <F3> :call FormartSrc()<CR>
+"map <F3> :call FormartSrc()<CR>
  
 "设置tab操作的快捷键，绑定:tabnew到<leader>t，绑定:tabn, :tabp到<leader>n,
 "<leader>p
@@ -247,125 +237,15 @@ else
 map ,e :e <C-R>=expand("%:p:h") . "\" <CR>
 endif
  
-"定义CompileRun函数，用来调用进行编译和运行
-func CompileRun()
-exec "w"
-"C程序
-if &filetype == 'c'
-exec "!del %<.exe"
-exec "!gcc % -o %<.exe"
-exec "!%<.exe"
-elseif &filetype == 'cpp'
-exec "!del %<.exe"
-exec "!g++ % -o %<.exe"
-exec "!%<.exe"
-"Java程序
-elseif &filetype == 'java'
-exec "!del %<.class"
-exec "!javac %"
-exec "!java %<"
-endif
-endfunc
-"结束定义CompileRun
- 
-"定义Run函数，用来调用进行编译和运行
-func Run()
-exec "w"
-"C程序
-if &filetype == 'c'
-exec "!%<.exe"
-elseif &filetype == 'cpp'
-exec "!%<.exe"
-"Java程序
-elseif &filetype == 'java'
-exec "!java %<"
-endif
-endfunc
-"结束定义Run
- 
-"定义Debug函数，用来调试程序
-func Debug()
-exec "w"
-"C程序
-if &filetype == 'c'
-exec "!del %<.exe"
-exec "!gcc % -g -o %<.exe"
-exec "!gdb %<.exe"
-elseif &filetype == 'cpp'
-exec "!del %<.exe"
-exec "!g++ % -g -o %<.exe"
-exec "!gdb %<.exe"
-"Java程序
-exec "!del %<.class"
-elseif &filetype == 'java'
-exec "!javac %"
-exec "!jdb %<"
-endif
-endfunc
-"结束定义Debug
-"定义FormartSrc()
-func FormartSrc()
-exec "w"
-"C程序,Perl程序,Python程序
-if &filetype == 'c'
-exec "!astyle --style=gnu --suffix=none %"
-exec "e! %"
-elseif &filetype == 'cpp'
-exec "!astyle --style=gnu --suffix=none %"
-exec "e! %"
-elseif &filetype == 'perl'
-exec "!astyle --style=gnu --suffix=none %"
-exec "e! %"
-elseif &filetype == 'py'
-exec "!astyle --style=gnu --suffix=none %"
-exec "e! %"
-"Java程序
-elseif &filetype == 'java'
-exec "!astyle --style=java --suffix=none %"
-exec "e! %"
-elseif &filetype == 'jsp'
-exec "!astyle --style=gnu --suffix=none %"
-exec "e! %"
-elseif &filetype == 'xml'
-exec "!astyle --style=gnu --suffix=none %"
-exec "e! %"
-elseif &filetype == 'html'
-exec "!astyle --style=gnu --suffix=none %"
-exec "e! %"
- 
-elseif &filetype == 'htm'
-exec "!astyle --style=gnu --suffix=none %"
-exec "e! %"
- 
-endif
-endfunc
-"结束定义FormartSrc
- 
-" 能够漂亮地显示.NFO文件
-set encoding=utf-8
-function! SetFileEncodings(encodings)
-    let b:myfileencodingsbak=&fileencodings
-    let &fileencodings=a:encodings
-endfunction
-function! RestoreFileEncodings()
-    let &fileencodings=b:myfileencodingsbak
-    unlet b:myfileencodingsbak
-endfunction
- 
-au BufReadPre *.nfo call SetFileEncodings('cp437')|set ambiwidth=single
-au BufReadPost *.nfo call RestoreFileEncodings()
- 
-" 高亮显示普通txt文件（需要txt.vim脚本）
-au BufRead,BufNewFile * setfiletype txt
- 
 " 用空格键来开关折叠
 set foldenable
 set foldmethod=manual
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 " 用f8作为tag bar 的快捷键
-nmap <F8> :TagbarToggle<CR> 
+nmap <F6> :TagbarToggle<CR> 
+nmap <F5> :NERDTreeToggle<CR> 
 
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+"let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
  
 "colo darkblue
