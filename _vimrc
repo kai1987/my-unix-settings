@@ -218,7 +218,7 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " 用f8作为tag bar 的快捷键
-nmap <F6> :TagbarToggle<CR> 
+nmap <F1> :TagbarToggle<CR> 
 nmap <F5> :NERDTreeToggle<CR> 
 
 au FocusLost * :wa "save on losing focus
