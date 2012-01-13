@@ -1,22 +1,12 @@
-" An example for a vimrc file.
-"
-" Maintainer: a18ccms <a18ccms@gmail.com>
-" Last change: 2010 03 12
-"
-" To use it, copy it to
-" for Unix and OS/2: ~/.vimrc
-" for Amiga: s:.vimrc
-" for MS-DOS and Win32: $VIM\_vimrc
-" for OpenVMS: sys$login:.vimrc
- 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-finish
-endif
- 
 set history=50   " keep 50 lines of command line history
 set showcmd   " display incomplete commands
- 
+set showmode  " display the current editing mode
+
+" get rid of the F1 help
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
  
@@ -50,39 +40,20 @@ source $VIMRUNTIME/menu.vim
 "set font
 "set guifont=Nsimsun
  
-"设置窗口大小
-" set lines=35
-" set columns=120
+set nocompatible  " 不要使用vi的键盘模式，而是vim自己的
  
-" 不要使用vi的键盘模式，而是vim自己的
-"set nocompatible
+set confirm " 在处理未保存或只读文件的时候，弹出确认
  
-" 在处理未保存或只读文件的时候，弹出确认
-set confirm
+filetype on  " 侦测文件类型
  
-" 与windows共享剪贴板
-set clipboard+=unnamed
+filetype plugin on  " 载入文件类型插件
  
-" 侦测文件类型
-filetype on
+filetype indent on  " 为特定文件类型载入相关缩进文件
  
-" 载入文件类型插件
-filetype plugin on
+set iskeyword+=_,$,@,%,#,- " 带有如下符号的单词不要被换行分割
  
-" 为特定文件类型载入相关缩进文件
-filetype indent on
+syntax on  " 语法高亮
  
-" 带有如下符号的单词不要被换行分割
-set iskeyword+=_,$,@,%,#,-
- 
-" 语法高亮
-syntax on
- 
-" 高亮字符，让其不受100列限制
-":highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
-":match OverLength '\%101v.*'
- 
-" 状态行颜色
 highlight StatusLine guifg=SlateBlue guibg=Yellow
 highlight StatusLineNC guifg=Gray guibg=White
  
@@ -135,21 +106,25 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 搜索和匹配
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 高亮显示匹配的括号
-set showmatch
- 
-" 匹配括号高亮的时间（单位是十分之一秒）
-set matchtime=5
- 
-" 在搜索的时候忽略大小写
-set ignorecase
- 
-" 高亮被搜索的句子（phrases）
-set hlsearch
- 
-" 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
-set incsearch
- 
+
+" The first two lines fix Vim’s horribly broken default regex “handling” by automatically inserting a \v before any string you search for.
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase " 在搜索的时候忽略大小写
+set smartcase  "If you search for an all-lowercase string your search will be case-insensitive, but if one or more characters is uppercase the search will be case-sensitive. 
+set gdefault   "applies substitutions globally on lines. For example, instead of :%s/foo/bar/g you just type :%s/foo/bar/. 
+set incsearch " 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
+set showmatch " 高亮显示匹配的括号
+set matchtime=5 " 匹配括号高亮的时间（单位是十分之一秒）
+set hlsearch " 高亮被搜索的句子（phrases）
+
+" makes it easy to clear out a search by typing ,<space>. This gets rid of the distracting highlighting once I’ve found what I’m looking for.
+nnoremap <leader><space> :noh<cr>
+
+" make the tab key match bracket pairs. I use this to move around all the time and <tab> is a hell of a lot easier to type than %.
+nnoremap <tab> %
+vnoremap <tab> %
+
 " 输入:set list命令是应该显示些啥？
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$
  
@@ -179,6 +154,7 @@ set smartindent
  
 " 使用C样式的缩进
 set cindent
+set cinkeys=0{,0},:,0#,!,!^F
  
 " 制表符为4
 set tabstop=4
@@ -188,7 +164,7 @@ set softtabstop=4
 set shiftwidth=4
  
 " 不要用空格代替制表符
-set noexpandtab
+set expandtab
  
 " 不要换行
 set nowrap
@@ -197,38 +173,34 @@ set nowrap
 set smarttab
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" working with split window 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" This next set of mappings maps <C-[h/j/k/l]> to the commands needed to move
+" around your splits. If you remap your capslock key to Ctrl it makes for very
+" easy navigation.
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" ,w open a new vertical split and switch over to it. 
+nnoremap <leader>w <C-w>v<C-w>l
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示
- 
 set number
 
-"设置Java代码的自动补全
-au FileType java setlocal omnifunc=javacomplete#Complete
- 
-let mapleader = "."
-"绑定自动补全的快捷键<C-X><C-O>到<leader>;
-imap <leader>; <C-X><C-O>
- 
-"设定开关Taglist插件的快捷键为F4，可以在VIM的左侧栏列出函数列表等
-" map <F4> :Tlist<CR>
- 
-"设置程序的编译运行和调试的快捷键F5，F6，Ctrl-F5
-" map <F5> :call CompileRun()<CR>
-" map <C-F5> :call Debug()<CR>
-" map <F6> :call Run()<CR>
- 
-"设置代码格式化快捷键F3
-"map <F3> :call FormartSrc()<CR>
- 
+let mapleader = "\\"  " use \ as the lead key
+
+imap <leader>; <C-X><C-O> "绑定自动补全的快捷键<C-X><C-O>到<leader>;
+
 "设置tab操作的快捷键，绑定:tabnew到<leader>t，绑定:tabn, :tabp到<leader>n,
 "<leader>p
 map <leader>t :tabnew<CR>
 map <leader>n :tabn<CR>
 map <leader>p :tabp<CR>
- 
-"用cscope支持
-"set csprg=d:\bin\cscope
  
 "使用<leader>e打开当前文件同目录中的文件
 if has("unix")
@@ -242,10 +214,29 @@ set foldenable
 set foldmethod=manual
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
+" remove all trailing spaces in the current file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
 " 用f8作为tag bar 的快捷键
 nmap <F6> :TagbarToggle<CR> 
 nmap <F5> :NERDTreeToggle<CR> 
 
+au FocusLost * :wa "save on losing focus
+
+" I have a ,v mapping to reselect the text that was just pasted so I can
+" perform commands (like indentation) on it:
+nnoremap <leader>v V`]
+
+" quickly open up my ~/.vimrc file in a vertically split window so I can add new things to it on the fly.
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+" I personally use jj to exit back to normal mode. 
+inoremap jj <ESC>
+
+
 "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
  
-"colo darkblue
+" colo Clouds Midnight 
+" colo clouds_midnight 
+colo Mustang_Vim_Colorscheme_by_hcalves
+
