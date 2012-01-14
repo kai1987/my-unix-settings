@@ -194,7 +194,8 @@ set number
 
 let mapleader = "\\"  " use \ as the lead key
 
-imap <leader>; <C-X><C-O> "绑定自动补全的快捷键<C-X><C-O>到<leader>;
+ "绑定自动补全的快捷键<C-X><C-O>到<leader>;
+imap <leader>; <C-X><C-O>
 
 "设置tab操作的快捷键，绑定:tabnew到<leader>t，绑定:tabn, :tabp到<leader>n,
 "<leader>p
