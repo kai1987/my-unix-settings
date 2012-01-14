@@ -154,7 +154,7 @@ set smartindent
  
 " 使用C样式的缩进
 set cindent
-set cinkeys=0{,0},:,0#,!,!^F
+"set cinkeys=0{,0},:,0#,!,!^F
  
 " 制表符为4
 set tabstop=4
@@ -194,9 +194,6 @@ set number
 
 let mapleader = "\\"  " use \ as the lead key
 
- "绑定自动补全的快捷键<C-X><C-O>到<leader>;
-imap <leader>; <C-X><C-O>
-
 "设置tab操作的快捷键，绑定:tabnew到<leader>t，绑定:tabn, :tabp到<leader>n,
 "<leader>p
 map <leader>t :tabnew<CR>
@@ -204,11 +201,11 @@ map <leader>n :tabn<CR>
 map <leader>p :tabp<CR>
  
 "使用<leader>e打开当前文件同目录中的文件
-if has("unix")
-map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-else
-map ,e :e <C-R>=expand("%:p:h") . "\" <CR>
-endif
+"if has("unix")
+"map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+"else
+"map ,e :e <C-R>=expand("%:p:h") . "\" <CR>
+"endif
  
 " 用空格键来开关折叠
 set foldenable
