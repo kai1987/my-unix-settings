@@ -236,5 +236,5 @@ inoremap jj <ESC>
  
 " colo Clouds Midnight 
 " colo clouds_midnight 
-colo Mustang_Vim_Colorscheme_by_hcalves
+" colo Mustang_Vim_Colorscheme_by_hcalves
 
