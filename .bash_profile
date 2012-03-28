@@ -41,7 +41,8 @@ alias sshearth='ssh sgfdeployer@www.zuikong.com'
 alias sshjupiter='ssh sgfdeployer@ping.zuikong.com'
 
 # Some shortcuts for different directory listings
-alias ls='ls -hF -G --color=auto'                 # classify files in colour
+alias ls='ls -hF -G'                 # classify files in colour
+# alias ls='ls -hF -G --color=auto'                 # classify files in colour
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
 alias la='ls -A'                              # all but . and ..
@@ -63,7 +64,7 @@ alias gs='git status'
 alias ga='git add'
 alias gp='git pull'
 alias gci='git commit'
-alias gpush='git push'
+alias gpush='git push origin master'
 alias gfetch='git fetch'
 alias gmerge='git merge'
 alias nginx-start='sudo /etc/init.d/nginx start'
