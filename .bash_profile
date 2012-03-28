@@ -66,6 +66,7 @@ alias gci='git commit'
 alias gpush='git push'
 alias gfetch='git fetch'
 alias gmerge='git merge'
+alias nginx-start='sudo /etc/init.d/nginx start'
 
 
 export PATH=${PATH}:/usr/local/bin
