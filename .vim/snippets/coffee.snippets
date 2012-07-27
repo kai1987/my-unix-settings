@@ -1,0 +1,139 @@
+# Prototype
+snippet proto
+	${1:class_name}::${2:method_name} = (${3:first_argument}) ->
+		${4:# body...}
+# Function
+snippet fun
+	${1:function_name} = (${2:argument}) ->
+		${3:# body...}
+# Anonymous Function
+snippet f
+	(${1}) -> ${2}
+# if
+snippet if
+	if ${1:true}
+	    ${2}
+# if ... else
+snippet ife
+	if ${1:true}
+	    ${2}
+	else
+		${3}
+# tertiary conditional
+snippet t
+	if ${1:/* condition */} then ${2:a} else ${3:b}
+# switch
+snippet switch
+	switch(${1:expression})
+		case '${3:case}':
+			${4:# code}
+			break
+		${5}
+		default:
+			${2:# code}
+# case
+snippet case
+	case '${1:case}':
+		${2:# code}
+		break
+	${3}
+# for (...) {...}
+snippet for
+	for ${2:item}, ${3:i} in ${1:List}
+		${4:# code}
+# for (...) {...} (Improved Native For-Loop)
+snippet forr
+	for ${2:key}, ${3:value} of ${1:Dict}
+		${3:# code}
+# while (...) {...}
+snippet wh
+	while ${1:/* condition */}
+		${2:/* code */}
+# do...while
+snippet do
+	do
+		${2:/* code */}
+# Object Method
+snippet :f
+	###
+	${3:doc}
+
+	@param  {${4:type}}     ${5:arg}    ${6:doc}
+	@return {${7:type}}                 ${8:doc}
+	###
+	${1:method_name}: (${2:attribute}) ->
+		${9}
+snippet log
+	console.log "${1:msg}"
+# New Class
+snippet cl
+	###
+	${1:doc}
+
+	###
+	class ${2:ClassName} extends ${9:ClassName}
+		###
+		${1:doc}
+
+		@constructor
+		@param  {${4:type}}     ${5:arg}    ${6:doc}
+		###
+		constructor: (${3:args}) ->
+# Local class ref
+snippet cls
+	cls = this.constructor
+# Local class ref
+snippet kls
+	kls = this
+# Local instance ref
+snippet slf
+	self = this
+# Local prototype ref
+snippet prt
+	proto = this.prototype
+snippet kprt
+	proto = kls.prototype
+# Local options ref
+snippet opt
+	options = this._options
+snippet sopt
+	options = self._options
+# Stop event bubbling
+snippet evprev
+	e.preventDefault()
+	e.stopPropagation()
+snippet valerr
+	throw new exceptions.ValueError("${1:message}")
+# Kopi Logger Debug
+snippet kpdbg
+	logger.debug "${1:message}"
+snippet kpwrn
+	logger.warn "${1:message}"
+snippet kperr
+	logger.error "${1:message}"
+snippet kpcnf
+	this.configure
+snippet kplgr
+	logger = logging.logger(module.id)
+# JSDoc
+snippet @param
+	@param {${1:type}} ${2:name} ${3:comment}
+snippet @type
+	@type	{${1:type}} ${2:comment}
+snippet @return
+	@return {${1:type}} ${2:comment}
+snippet @throws
+	@throws {${1:type}} ${2:comment}
+snippet @priv
+	@private
+snippet @cons
+	@constructor
+snippet @depr
+	@deprecated
+# AMD
+snippet def
+	define "${1:module}", (require, exports, module) ->
+snippet req
+	${1:exports} = require "${2:module}"
+snippet reqo
+	${1:object} = require("${1:module}").${2:object}
