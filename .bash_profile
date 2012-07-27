@@ -37,8 +37,8 @@ alias less='less -r'                          # raw control characters
 alias whence='type -a'                        # where, of a sort
 alias grep='grep --color'                     # show differences in colour
 alias dp='ssh arkytan@dappad.com'
-alias sshearth='ssh sgfdeployer@www.zuikong.com'
-alias sshjupiter='ssh sgfdeployer@ping.zuikong.com'
+alias sshearth='ssh sgfdeployer@earth.zuikong.com'
+alias sshjupiter='ssh sgfdeployer@jupiter.zuikong.com'
 
 # Some shortcuts for different directory listings
 alias ls='ls -hF -G'                 # classify files in colour
@@ -58,6 +58,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias up='cd ..'
 alias qci='svn ci . -m "" --no-auth-cache '
+alias sci='svn ci '
+alias svns='svn status'
 alias cdp='cap deploy'
 alias sup='svn up'
 alias gs='git status'
@@ -71,6 +73,7 @@ alias nginx-start='sudo /etc/init.d/nginx start'
 
 
 export PATH=${PATH}:/usr/local/bin
+export SVN_EDITOR=vi
 
 # Functions
 # #########
