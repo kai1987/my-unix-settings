@@ -156,12 +156,12 @@ set smartindent
 set cindent
 "set cinkeys=0{,0},:,0#,!,!^F
  
-" 制表符为4
-set tabstop=4
+" 制表符为2
+set tabstop=2
  
-" 统一缩进为4
-set softtabstop=4
-set shiftwidth=4
+" 统一缩进为2
+set softtabstop=2
+set shiftwidth=2
  
 " 不要用空格代替制表符
 set expandtab
@@ -209,7 +209,7 @@ map <leader>p :tabp<CR>
  
 " 用空格键来开关折叠
 set foldenable
-set foldmethod=manual
+set foldmethod=marker
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 " remove all trailing spaces in the current file
@@ -231,10 +231,11 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " I personally use jj to exit back to normal mode. 
 inoremap jj <ESC>
 
+autocmd BufWritePre *.py :%s/\s\+$//e
 
 "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
  
 " colo Clouds Midnight 
 " colo clouds_midnight 
 " colo Mustang_Vim_Colorscheme_by_hcalves
-
+colo pablo
