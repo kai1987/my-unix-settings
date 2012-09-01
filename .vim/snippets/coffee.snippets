@@ -5,7 +5,7 @@ snippet proto
 # Function
 snippet fun
 	${1:function_name} = (${2:argument}) ->
-		${3:# body...}
+		${3}
 # Anonymous Function
 snippet f
 	(${1}) -> ${2}
@@ -104,17 +104,20 @@ snippet evprev
 	e.stopPropagation()
 snippet valerr
 	throw new exceptions.ValueError("${1:message}")
+
 # Kopi Logger Debug
-snippet kpdbg
-	logger.debug "${1:message}"
-snippet kpwrn
-	logger.warn "${1:message}"
-snippet kperr
-	logger.error "${1:message}"
-snippet kpcnf
-	this.configure
-snippet kplgr
-	logger = logging.logger(module.id)
+snippet logg
+	logger.log "[`Filename()`::${1:method}] ${2:message}"
+
+snippet warn
+	logger.warn "[`Filename()`::${1:method}] ${2:message}"
+
+snippet error
+	logger.error "[`Filename()`::${1:method}] ${2:message}"
+
+snippet info
+	logger.info "[`Filename()`::${1:method}] ${2:message}"
+
 # JSDoc
 snippet @param
 	@param {${1:type}} ${2:name} ${3:comment}
@@ -137,3 +140,104 @@ snippet req
 	${1:exports} = require "${2:module}"
 snippet reqo
 	${1:object} = require("${1:module}").${2:object}
+
+# NOTE, TODO, FIXME
+snippet note
+	# NOTE:
+	#   ${1}
+	# ty `system("date +%Y-%m-%d")`
+
+snippet todo
+	# TODO:
+	#   ${1}
+	# ty `system("date +%Y-%m-%d")`
+
+snippet fixme
+	# FIXME:
+	#   ${1}
+	# ty `system("date +%Y-%m-%d")`
+
+
+
+snippet rlog
+	logger = require '${1:.}/util/logger'
+
+snippet rjob
+	jobtype = require '${1:.}/enum/jobtype'
+
+snippet rpct
+	player_cd_type = require '${1:..}/enum/player_cd_type'
+
+snippet rct
+	creature_type = require '${1:..}/enum/creature_type'
+
+snippet rbt
+	buf_template = require '${1:..}/enum/buf_template'
+
+snippet rmt
+	mission_type = require '${1:..}/enum/mission_type'
+
+snippet rma
+	mission_asset = require '${1:..}/depot/mission_asset'
+
+snippet rbu
+	buffer_util = require '${1:..}/util/buffer_util'
+
+snippet rop
+	opcode = require '${1:..}/enum/opcode'
+
+snippet renv
+	env = require '${1:..}/config/environment'
+
+snippet rmfc
+	FightableCreature = require '${1:..}/mixin/fightable_creature'
+
+snippet rmmc
+	MovableCreature = require '${1:..}/mixin/movable_creature'
+
+snippet rmtc
+	TrainingCreature = require '${1:..}/mixin/training_creature'
+
+snippet rgm
+	gifts =  require '${1:..}/gifts_mgr'
+
+snippet rdb
+	db = require '${1:..}/db'
+
+snippet rra
+	redis_abb = require '${1:..}/enum/redis_abbreviation'
+
+snippet rs
+	sessions = require '${1:..}/sessions'
+
+snippet rbdt
+	body_type = require '${1:..}/enum/body_type'
+
+snippet rsa
+	scene_asset = require '${1:..}/depot/scene_asset'
+
+snippet rsc
+	scenes = require '${1:..}/scenes'
+
+snippet rpla
+	player_level_asset = require '${1:..}/depot/player_level_asset'
+
+snippet rssbj
+	skill_set_by_job = require '${1:..}/enum/skill_set_by_job'
+
+snippet rplst
+	player_living_stat_type = require '${1:..}/enum/player_living_stat_type'
+
+snippet rrs
+	role_status = require '${1:..}/enum/role_status'
+
+snippet rmm
+	mission_mgr = require(${1:'..}/mission_mgr')
+
+snippet rrh
+	reason_hp = require '${1:..}/enum/reason_hp'
+
+
+
+
+
