@@ -231,7 +231,7 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " I personally use jj to exit back to normal mode. 
 inoremap jj <ESC>
 
-autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
  
