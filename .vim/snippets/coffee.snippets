@@ -63,8 +63,11 @@ snippet :f
 	###
 	${1:method_name}: (${2:attribute}) ->
 		${9}
-snippet log
-	console.log "[${1:msg}]"
+
+snippet debug
+	console.log "[`Filename()`::${1:method}] ${2:message}"
+
+
 # New Class
 snippet cl
 	###
@@ -110,7 +113,7 @@ snippet throw
 	throw new Error('${1:message}');
 
 # Kopi Logger Debug
-snippet logg
+snippet log
 	logger.log "[`Filename()`::${1:method}] ${2:message}"
 
 snippet warn
@@ -241,6 +244,9 @@ snippet rmm
 snippet rrh
 	reason_hp = require '${1:..}/enum/reason_hp'
 
+snippet rpm
+	player_mgr = require '${1:.}/player_mgr'
+
 # should tests
 snippet .sdb
 	.should.be.a('${1:object}')
@@ -290,6 +296,6 @@ snippet des
 snippet it
 	it '${1:expectation}', ->
 
-
-
+snippet getplayer
+	player = player_mgr.getPlayerByGuid(guid)
 
