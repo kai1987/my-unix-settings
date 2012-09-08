@@ -72,7 +72,7 @@ alias gmerge='git merge'
 alias nginx-start='sudo /etc/init.d/nginx start'
 alias redis-to147='redis-cli -h 192.168.90.147 -p 6379'
 alias redis-to230='redis-cli -h 192.168.90.230 -p 6379'
-
+alias mocha='mocha --reporter spec '
 
 export PATH=${PATH}:/usr/local/bin
 export SVN_EDITOR=vi

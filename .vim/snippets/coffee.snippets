@@ -102,8 +102,12 @@ snippet sopt
 snippet evprev
 	e.preventDefault()
 	e.stopPropagation()
+
 snippet valerr
 	throw new exceptions.ValueError("${1:message}")
+
+snippet throw
+	throw new Error('${1:message}');
 
 # Kopi Logger Debug
 snippet logg
@@ -158,7 +162,7 @@ snippet fixme
 	# ty `system("date +%Y-%m-%d")`
 
 
-
+# require modules
 snippet rlog
 	logger = require '${1:.}/util/logger'
 
@@ -237,6 +241,54 @@ snippet rmm
 snippet rrh
 	reason_hp = require '${1:..}/enum/reason_hp'
 
+# should tests
+snippet .sdb
+	.should.be.a('${1:object}')
+
+snippet .sdhave
+	.should.have.property('${1:prop}')
+
+snippet .sdex
+	.should.exist(${1:var})
+
+snippet .sd=
+	.should.eql(${1:var})
+
+snippet .sd===
+	.should.strictEqual(${1:var1}, ${2:var2})
+
+snippet .sdok
+	.should.be.ok
+
+snippet .sdtrue
+	.should.be.true
+
+snippet .sdwithin
+	.should.be.within(${1:range1}, ${2:range2})
+
+snippet .sd<-
+	.should.be.an.instanceof(${1:class})
+
+snippet .sd<
+	.should.be.below(${1:max})
+
+snippet .sd>
+	.should.be.above(${1:min})
+
+snippet .sdlen
+	.should.have.length(${1:length})
+
+snippet .sdinclude
+	.should.include(${1:item})
+
+snippet .sdkeys
+	.should.have.keys('${1:key1}')
+
+snippet des
+	describe '${1:description}', ->
+
+snippet it
+	it '${1:expectation}', ->
 
 
 
