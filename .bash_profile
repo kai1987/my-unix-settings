@@ -72,13 +72,16 @@ alias gmerge='git merge'
 alias nginx-start='sudo /etc/init.d/nginx start'
 alias redis-to147='redis-cli -h 192.168.90.147 -p 6379'
 alias redis-to230='redis-cli -h 192.168.90.230 -p 6379'
+alias redis-monitor-147='redis-cli -h 192.168.90.147 monitor'
 alias mocha='mocha --reporter spec '
 
-export PATH=${PATH}:/usr/local/bin
+export PATH=/usr/local/bin:${PATH}
 export SVN_EDITOR=vi
 
 # Functions
 # #########
+
+hint () { grep "$1" . -ir | grep -v svn; }
 
 # PS1="$(__svn_stat)[\[\033[32m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u\[\033[1;33m\] -> \[\033[0m\]"
 PS1="[\[\033[37m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u\[\033[1;33m\] -> \[\033[0m\]"
