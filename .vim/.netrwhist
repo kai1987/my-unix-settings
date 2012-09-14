@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/ty/workspaces/zk/nodevcore'
-let g:netrw_dirhist_2='/Users/ty/workspaces/zk/zk-playlist-fetcher'
-let g:netrw_dirhist_3='/Users/ty/workspaces/zk/zk-playlist-fetcher/src'
-let g:netrw_dirhist_4='/Users/ty/workspaces/zk/nodevcore/config/deploy'
-let g:netrw_dirhist_5='/Users/ty/workspaces/zk/nodevcore'
