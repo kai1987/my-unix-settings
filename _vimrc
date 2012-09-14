@@ -231,6 +231,9 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " I personally use jj to exit back to normal mode.
 inoremap jj <ESC>
 
+" use Ctrl + Space for auto complition
+inoremap <C-Space> <C-n>
+
 autocmd BufWritePre * :%s/\s\+$//e
 
 "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
@@ -260,7 +263,7 @@ colo pablo
 if executable('coffeetags')
   let g:tagbar_type_coffee = {
         \ 'ctagsbin' : 'coffeetags',
-        \ 'ctagsargs' : '--include-vars',
+        \ 'ctagsargs' : '',
         \ 'kinds' : [
         \ 'f:functions',
         \ 'o:object',
@@ -272,3 +275,7 @@ if executable('coffeetags')
         \ }
         \ }
 endif
+
+"To enable auto-popup for this completion, add following function to plugin/snipMate.vim:
+let g:acp_behaviorSnipmateLength = 1
+
