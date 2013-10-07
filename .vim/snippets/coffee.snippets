@@ -64,8 +64,11 @@ snippet :f
 	${1:method_name}: (${2:attribute}) ->
 		${9}
 
-snippet debug
+snippet trace
 	console.log "[`Filename()`::${1:method}] ${2:message}"
+
+snippet dir
+	console.dir ${1:object}
 
 
 # New Class
@@ -307,6 +310,9 @@ snippet readuint
 
 snippet readshort
 	buffer_util.readUnsignedShort(${1:buf})
+
+snippet shebang
+	#!/usr/bin/env ${1:node}
 
 
 

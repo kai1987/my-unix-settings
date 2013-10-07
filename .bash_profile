@@ -36,9 +36,6 @@ alias du='du -h'
 alias less='less -r'                          # raw control characters
 alias whence='type -a'                        # where, of a sort
 alias grep='grep --color'                     # show differences in colour
-alias dp='ssh arkytan@dappad.com'
-alias sshearth='ssh sgfdeployer@earth.zuikong.com'
-alias sshjupiter='ssh sgfdeployer@jupiter.zuikong.com'
 
 # Some shortcuts for different directory listings
 alias ls='ls -hF -G'                 # classify files in colour
@@ -66,6 +63,7 @@ alias gs='git status'
 alias ga='git add'
 alias gp='git pull'
 alias gci='git commit'
+alias gcia='git commit -am '
 alias gpush='git push origin master'
 alias gfetch='git fetch'
 alias gmerge='git merge'
@@ -74,6 +72,14 @@ alias redis-to147='redis-cli -h 192.168.90.147 -p 6379'
 alias redis-to230='redis-cli -h 192.168.90.230 -p 6379'
 alias redis-monitor-147='redis-cli -h 192.168.90.147 monitor'
 alias mocha='mocha --reporter spec '
+alias ssh156='ssh modao@192.168.90.156'
+alias ssh166='ssh tim@192.168.90.166'
+alias ssh2asset='ssh asset@192.168.90.156'
+alias ssh147='ssh modao@192.168.90.147'
+alias ssh162='ssh 192.168.90.162'
+alias xt='xtitle'
+alias grunt='grunt --stack'
+alias redis-to-r3-atf='redis-cli -h r3.sgfgames.com -p 6390'
 
 export PATH=/usr/local/bin:${PATH}
 export SVN_EDITOR=vi
