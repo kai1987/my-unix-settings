@@ -168,6 +168,16 @@ snippet fixme
 	# ty `system("date +%Y-%m-%d")`
 
 
+# class/file header
+snippet declare
+	###
+	# ${desc:.}
+	#
+	# File: `Filename()`
+	# Author: ty
+	# Created on: `system("date +%Y-%m-%d")`
+	###
+
 # require modules
 snippet rlog
 	logger = require '${1:.}/util/logger'
