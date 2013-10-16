@@ -4,9 +4,9 @@ my-unix-settings
 ## Install
 
 ```bash
-cd ~ && \
-mkdir -p tmp && \
-cd temp && \
+rm -rf ~/temp/my-unix-settings && \
+mkdir -p ~/temp && \
+cd ~/temp && \
 git clone git@github.com:yi/my-unix-settings.git && \
 mv ./my-unix-settings/.git ~ && \
 cd ~ && \
