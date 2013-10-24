@@ -81,6 +81,7 @@ alias ssh2m2='ssh m2.sgfgames.com'
 alias xt='xtitle'
 alias grunt='grunt --stack'
 alias redis-to-r3-atf='redis-cli -h r3.sgfgames.com -p 6390'
+alias nw='npm run-script watch'
 
 export PATH=/usr/local/bin:${PATH}
 export SVN_EDITOR=vi
