@@ -73,7 +73,7 @@ alias redis-to230='redis-cli -h 192.168.90.230 -p 6379'
 alias redis-monitor-147='redis-cli -h 192.168.90.147 monitor'
 alias mocha='mocha --reporter spec '
 alias ssh156='ssh modao@192.168.90.156'
-alias ssh166='ssh tim@192.168.90.166'
+alias ssh166='ssh sgfdeployer@192.168.90.166'
 alias ssh2asset='ssh asset@192.168.90.156'
 alias ssh147='ssh modao@192.168.90.147'
 alias ssh162='ssh 192.168.90.162'
@@ -92,7 +92,7 @@ export SVN_EDITOR=vi
 hint () { grep "$1" . -ir | grep -v svn; }
 
 # PS1="$(__svn_stat)[\[\033[32m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u\[\033[1;33m\] -> \[\033[0m\]"
-PS1="[\[\033[37m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u\[\033[1;33m\] -> \[\033[0m\]"
+PS1="[\[\033[37m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u@\h\[\033[1;33m\] -> \[\033[0m\]"
 
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
