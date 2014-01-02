@@ -62,6 +62,7 @@ alias sup='svn up'
 alias gs='git status'
 alias ga='git add'
 alias gp='git pull'
+alias gp-all-sub='for i in $(find . -type d -maxdepth 1 -not -name .);  do echo "git pull: $i"; gp; done'
 alias gci='git commit'
 alias gcia='git commit -am '
 alias gpush='git push origin master'
@@ -78,6 +79,7 @@ alias ssh2asset='ssh asset@192.168.90.156'
 alias ssh147='ssh modao@192.168.90.147'
 alias ssh162='ssh 192.168.90.162'
 alias ssh2m2='ssh m2.sgfgames.com'
+alias ssh2imac='ssh imac@192.168.10.100'
 alias xt='xtitle'
 alias grunt='grunt --stack'
 alias redis-to-r3-atf='redis-cli -h r3.sgfgames.com -p 6390'
@@ -94,5 +96,9 @@ hint () { grep "$1" . -ir | grep -v svn; }
 
 # PS1="$(__svn_stat)[\[\033[32m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u\[\033[1;33m\] -> \[\033[0m\]"
 PS1="[\[\033[37m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u@\h\[\033[1;33m\] -> \[\033[0m\]"
+
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
 
 
