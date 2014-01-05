@@ -62,7 +62,7 @@ alias sup='svn up'
 alias gs='git status'
 alias ga='git add'
 alias gp='git pull'
-alias gp-all-sub='for i in $(find . -type d -maxdepth 1 -not -name .);  do echo "git pull: $i"; gp; done'
+alias gp-all-sub='for i in $(find . -type d -maxdepth 1 -not -name .);  do cd $i; echo "git pull: $i"; gp; cd ..; done'
 alias gci='git commit'
 alias gcia='git commit -am '
 alias gpush='git push origin master'
@@ -84,6 +84,7 @@ alias xt='xtitle'
 alias grunt='grunt --stack'
 alias redis-to-r3-atf='redis-cli -h r3.sgfgames.com -p 6390'
 alias nw='npm run-script watch'
+alias ns='npm start'
 
 export PATH=/usr/local/bin:${PATH}
 export SVN_EDITOR=vi
