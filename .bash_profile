@@ -78,10 +78,16 @@ alias ssh166='ssh sgfdeployer@192.168.90.166'
 alias ssh2asset='ssh asset@192.168.90.156'
 alias ssh147='ssh modao@192.168.90.147'
 alias ssh162='ssh 192.168.90.162'
+<<<<<<< HEAD
 alias ssh2m2='ssh m2.sgfgames.com'
 alias ssh2imac='ssh imac@192.168.10.107'
 alias ssh2gama='ssh modao@gamagama.cn'
 alias ssh149='ssh user@192.168.90.149'
+=======
+alias ssh2m2='ssh modao@m2.sgfgames.com'
+alias ssh2gama='ssh modao@gamagama.cn'
+alias ssh2imac='ssh imac@192.168.10.100'
+>>>>>>> cc3978c62fb2f35d049650675ac96f5f61ea20d8
 alias xt='xtitle'
 alias grunt='grunt --stack'
 alias redis-to-r3-atf='redis-cli -h r3.sgfgames.com -p 6390'
