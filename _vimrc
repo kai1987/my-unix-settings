@@ -262,21 +262,24 @@ endif
 colo pablo
 
 " add coffee tagbar support: https://github.com/lukaszkorecki/coffeetags
+
 if executable('coffeetags')
-  let g:tagbar_type_coffee = {
-        \ 'ctagsbin' : 'coffeetags',
-        \ 'ctagsargs' : '',
-        \ 'kinds' : [
-        \ 'f:functions',
-        \ 'o:object',
-        \ ],
-        \ 'sro' : ".",
-        \ 'kind2scope' : {
-        \ 'f' : 'object',
-        \ 'o' : 'object',
-        \ }
-        \ }
-endif
+    let g:tagbar_type_coffee = {
+            \ 'ctagsbin' : 'coffeetags',
+            \ 'ctagsargs' : '--include-vars',
+            \ 'kinds' : [
+            \ 'f:functions',
+            \ 'o:object',
+            \ ],
+            \ 'sro' : ".",
+            \ 'kind2scope' : {
+            \ 'f' : 'object',
+            \ 'o' : 'object',
+            \ }
+            \ }
+  endif
+
+
 
 "To enable auto-popup for this completion, add following function to plugin/snipMate.vim:
 let g:acp_behaviorSnipmateLength = 1
