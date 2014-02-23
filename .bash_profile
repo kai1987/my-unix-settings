@@ -105,4 +105,6 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
+# include git auto completion
+source ~/.git-completion.bash
 
