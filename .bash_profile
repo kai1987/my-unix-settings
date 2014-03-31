@@ -91,6 +91,9 @@ alias grunt='grunt --stack'
 alias redis-to-r3-atf='redis-cli -h r3.sgfgames.com -p 6390'
 alias nw='npm run-script watch'
 alias ns='npm start'
+alias npminstall='npm config set registry http://registry.cnpmjs.org && npm install && npm config set registry http://registry.npmjs.org'
+alias cnpm='npm config set registry http://registry.cnpmjs.org && echo set npm to cn registry'
+alias enpm='npm config set registry http://registry.npmjs.org && echo set npm to origin registry'
 
 export PATH=/usr/local/bin:${PATH}
 export SVN_EDITOR=vi
