@@ -84,6 +84,8 @@ alias ssh2gama='ssh modao@gamagama.cn'
 alias ssh149='ssh user@192.168.90.149'
 alias ssh154='ssh yi@192.168.90.154'
 alias ssh2r3ticketman='ssh gamadeployer@r3ticketman.sgfgames.com'
+alias ssh2ck1='ssh modao@ck1.sgfgames.com'
+
 alias xt='xtitle'
 alias grunt='grunt --stack'
 alias redis-to-r3-atf='redis-cli -h r3.sgfgames.com -p 6390'
