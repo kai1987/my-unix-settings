@@ -84,11 +84,16 @@ alias ssh2gama='ssh modao@gamagama.cn'
 alias ssh149='ssh user@192.168.90.149'
 alias ssh154='ssh yi@192.168.90.154'
 alias ssh2r3ticketman='ssh gamadeployer@r3ticketman.sgfgames.com'
+alias ssh2ck1='ssh modao@ck1.sgfgames.com'
+
 alias xt='xtitle'
 alias grunt='grunt --stack'
 alias redis-to-r3-atf='redis-cli -h r3.sgfgames.com -p 6390'
 alias nw='npm run-script watch'
 alias ns='npm start'
+alias npminstall='npm config set registry http://registry.cnpmjs.org && npm install && npm config set registry http://registry.npmjs.org'
+alias cnpm='npm config set registry http://registry.cnpmjs.org && echo set npm to cn registry'
+alias enpm='npm config set registry http://registry.npmjs.org && echo set npm to origin registry'
 
 export PATH=/usr/local/bin:${PATH}
 export SVN_EDITOR=vi

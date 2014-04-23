@@ -117,42 +117,19 @@ snippet throw
 
 # Kopi Logger Debug
 snippet log
-	logger.log "[`Filename()`::${1:method}] ${2:message}"
+	console.log "[`Filename()`::${1:method}] ${2:message}"
 
 snippet warn
-	logger.warn "[`Filename()`::${1:method}] ${2:message}"
+	console.warn "[`Filename()`::${1:method}] ${2:message}"
 
 snippet error
-	logger.error "[`Filename()`::${1:method}] ${2:message}"
+	console.error "ERROR [`Filename()`::${1:method}] ${2:message}"
 
 snippet info
-	logger.info "[`Filename()`::${1:method}] ${2:message}"
+	console.info "[`Filename()`::${1:method}] ${2:message}"
 
-# express controller log message
-snippet clog
-	logger.log "[controller::`Filename()`::${1:method}] ${2:message}"
-
-snippet cwarn
-	logger.warn "[controller::`Filename()`::${1:method}] ${2:message}"
-
-snippet cerror
-	logger.error "[controller::`Filename()`::${1:method}] ${2:message}"
-
-snippet cinfo
-	logger.info "[controller::`Filename()`::${1:method}] ${2:message}"
-
-# express modle log message
-snippet mlog
-	logger.log "[model::`Filename()`::${1:method}] ${2:message}"
-
-snippet mwarn
-	logger.warn "[model::`Filename()`::${1:method}] ${2:message}"
-
-snippet merror
-	logger.error "[model::`Filename()`::${1:method}] ${2:message}"
-
-snippet minfo
-	logger.info "[model::`Filename()`::${1:method}] ${2:message}"
+snippet dlog
+	debuglog "[${1:method}] ${2:message}"
 
 # JSDoc
 snippet @param
