@@ -15,11 +15,13 @@
   ll = log --oneline --decorate --color
   lc = log --graph --color
   rb = rebase
+  re = remote
   dci = dcommit
   sbi = submodule init
   sbu = submodule update
   sbp = submodule foreach git pull
   sbc = submodule foreach git co master
+  dry-run = merge --no-commit --no-ff
 
 
 
