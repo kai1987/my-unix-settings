@@ -2,7 +2,7 @@
 	name = yi
 	email = yi2004@gmail.com
 [merge]
-	tool = opendiff
+	tool = vimdiff
 [alias]
 	co = checkout
 	br = branch
@@ -22,6 +22,7 @@
   sbp = submodule foreach git pull
   sbc = submodule foreach git co master
   dry-run = merge --no-commit --no-ff
+  mt = mergetool
 
 
 
