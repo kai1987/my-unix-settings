@@ -103,7 +103,8 @@ export SVN_EDITOR=vi
 # Functions
 # #########
 
-hint () { grep "$1" . -ir | grep -v svn; }
+hint () { grep "$1" . -r | grep -v svn; }
+hinti () { grep "$1" . -ir | grep -v svn; }
 
 # PS1="$(__svn_stat)[\[\033[32m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u\[\033[1;33m\] -> \[\033[0m\]"
 PS1="[\[\033[37m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u@\h\[\033[1;33m\] -> \[\033[0m\]"
