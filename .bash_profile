@@ -113,19 +113,21 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
+# enable autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
 # include git auto completion
 source ~/.git-completion.bash
 
-
-# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
-export COCOS_CONSOLE_ROOT=/Users/ty/tools/cocos2d-x-3.0rc1/tools/cocos2d-console/bin
-export PATH=$COCOS_CONSOLE_ROOT:$PATH
-
-# Add environment variable NDK_ROOT for cocos2d-x
-export NDK_ROOT=/Users/ty/tools/android-ndk-r9d
-export PATH=$NDK_ROOT:$PATH
+# include android sdk auto completion
+#source /usr/local/etc/bash_completion.d
 
 # Add environment variable ANDROID_SDK_ROOT for cocos2d-x
-export ANDROID_SDK_ROOT=/Users/ty/tools/adt-bundle/sdk
-export PATH=$ANDROID_SDK_ROOT:$PATH
-export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+export PATH=$ANDROID_HOME:$PATH
+export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+
+# add by quick-cocos2d-x setup, DATE: 2014-06-13 TIME: 18:17:03
+export QUICK_COCOS2DX_ROOT="/Users/ty/workspaces/quick-cocos2d-x"
+
