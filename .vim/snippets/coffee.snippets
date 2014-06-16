@@ -1,0 +1,332 @@
+# Prototype
+snippet proto
+	${1:class_name}::${2:method_name} = (${3:first_argument}) ->
+		${4:# body...}
+# Function
+snippet fun
+	${1:function_name} = (${2:argument}) ->
+		${3}
+# Anonymous Function
+snippet f
+	(${1}) -> ${2}
+# if
+snippet if
+	if ${1:true}
+	    ${2}
+# if ... else
+snippet ife
+	if ${1:true}
+	    ${2}
+	else
+		${3}
+# tertiary conditional
+snippet t
+	if ${1:/* condition */} then ${2:a} else ${3:b}
+# switch
+snippet switch
+	switch(${1:expression})
+		case '${3:case}':
+			${4:# code}
+			break
+		${5}
+		default:
+			${2:# code}
+# case
+snippet case
+	case '${1:case}':
+		${2:# code}
+		break
+	${3}
+# for (...) {...}
+snippet for
+	for ${2:item}, ${3:i} in ${1:List}
+		${4:# code}
+# for (...) {...} (Improved Native For-Loop)
+snippet forr
+	for ${2:key}, ${3:value} of ${1:Dict}
+		${3:# code}
+# while (...) {...}
+snippet wh
+	while ${1:/* condition */}
+		${2:/* code */}
+# do...while
+snippet do
+	do
+		${2:/* code */}
+# Object Method
+snippet :f
+	###
+	${3:doc}
+
+	@param  {${4:type}}     ${5:arg}    ${6:doc}
+	@return {${7:type}}                 ${8:doc}
+	###
+	${1:method_name}: (${2:attribute}) ->
+		${9}
+
+snippet trace
+	console.log "[`Filename()`::${1:method}] ${2:message}"
+
+snippet dir
+	console.dir ${1:object}
+
+
+# New Class
+snippet cl
+	###
+	${1:doc}
+
+	###
+	class ${2:ClassName} extends ${9:ClassName}
+		###
+		${1:doc}
+
+		@constructor
+		@param  {${4:type}}     ${5:arg}    ${6:doc}
+		###
+		constructor: (${3:args}) ->
+# Local class ref
+snippet cls
+	cls = this.constructor
+# Local class ref
+snippet kls
+	kls = this
+# Local instance ref
+snippet slf
+	self = this
+# Local prototype ref
+snippet prt
+	proto = this.prototype
+snippet kprt
+	proto = kls.prototype
+# Local options ref
+snippet opt
+	options = this._options
+snippet sopt
+	options = self._options
+# Stop event bubbling
+snippet evprev
+	e.preventDefault()
+	e.stopPropagation()
+
+snippet valerr
+	throw new exceptions.ValueError("${1:message}")
+
+snippet throw
+	throw new Error('${1:message}');
+
+# Kopi Logger Debug
+snippet log
+	console.log "[`Filename()`::${1:method}] ${2:message}"
+
+snippet warn
+	console.warn "[`Filename()`::${1:method}] ${2:message}"
+
+snippet error
+	console.error "ERROR [`Filename()`::${1:method}] ${2:message}"
+
+snippet info
+	console.info "[`Filename()`::${1:method}] ${2:message}"
+
+snippet dlog
+	debuglog "[${1:method}] ${2:message}"
+
+# JSDoc
+snippet @param
+	@param {${1:type}} ${2:name} ${3:comment}
+snippet @type
+	@type	{${1:type}} ${2:comment}
+snippet @return
+	@return {${1:type}} ${2:comment}
+snippet @throws
+	@throws {${1:type}} ${2:comment}
+snippet @priv
+	@private
+snippet @cons
+	@constructor
+snippet @depr
+	@deprecated
+# AMD
+snippet def
+	define "${1:module}", (require, exports, module) ->
+snippet req
+	${1:exports} = require "${2:module}"
+snippet reqo
+	${1:object} = require("${1:module}").${2:object}
+
+# NOTE, TODO, FIXME
+snippet note
+	# NOTE:
+	#   ${1}
+	# ty `system("date +%Y-%m-%d")`
+
+snippet todo
+	# TODO:
+	#   ${1}
+	# ty `system("date +%Y-%m-%d")`
+
+snippet fixme
+	# FIXME:
+	#   ${1}
+	# ty `system("date +%Y-%m-%d")`
+
+
+# class/file header
+snippet declare
+	###
+	# ${desc:.}
+	#
+	# File: `Filename()`
+	# Author: ty
+	# Created on: `system("date +%Y-%m-%d")`
+	###
+
+# require modules
+snippet rlog
+	logger = require '${1:.}/util/logger'
+
+snippet rjob
+	jobtype = require '${1:.}/enum/jobtype'
+
+snippet rpct
+	player_cd_type = require '${1:..}/enum/player_cd_type'
+
+snippet rct
+	creature_type = require '${1:..}/enum/creature_type'
+
+snippet rbt
+	buf_template = require '${1:..}/enum/buf_template'
+
+snippet rmt
+	mission_type = require '${1:..}/enum/mission_type'
+
+snippet rma
+	mission_asset = require '${1:..}/depot/mission_asset'
+
+snippet rbu
+	buffer_util = require '${1:..}/util/buffer_util'
+
+snippet rop
+	opcode = require '${1:..}/enum/opcode'
+
+snippet renv
+	env = require '${1:..}/config/environment'
+
+snippet rmfc
+	FightableCreature = require '${1:..}/mixin/fightable_creature'
+
+snippet rmmc
+	MovableCreature = require '${1:..}/mixin/movable_creature'
+
+snippet rmtc
+	TrainingCreature = require '${1:..}/mixin/training_creature'
+
+snippet rgm
+	gifts =  require '${1:..}/gifts_mgr'
+
+snippet rdb
+	db = require '${1:..}/db'
+
+snippet rra
+	redis_abb = require '${1:..}/enum/redis_abbreviation'
+
+snippet rs
+	sessions = require '${1:..}/sessions'
+
+snippet rbdt
+	body_type = require '${1:..}/enum/body_type'
+
+snippet rsa
+	scene_asset = require '${1:..}/depot/scene_asset'
+
+snippet rsm
+	scene_mgr = require '${1:..}/scene_mgr'
+
+snippet rdu
+	date_util = require '${1:..}/util/date_util'
+
+snippet rpla
+	player_level_asset = require '${1:..}/depot/player_level_asset'
+
+snippet rssbj
+	skill_set_by_job = require '${1:..}/enum/skill_set_by_job'
+
+snippet rplst
+	player_living_stat_type = require '${1:..}/enum/player_living_stat_type'
+
+snippet rrs
+	role_status = require '${1:..}/enum/role_status'
+
+snippet rmm
+	mission_mgr = require(${1:'..}/mission_mgr')
+
+snippet rrh
+	reason_hp = require '${1:..}/enum/reason_hp'
+
+snippet rpm
+	player_mgr = require '${1:.}/player_mgr'
+
+# should tests
+snippet .sdb
+	.should.be.a('${1:object}')
+
+snippet .sdhave
+	.should.have.property('${1:prop}')
+
+snippet .sdex
+	.should.exist(${1:var})
+
+snippet .sd=
+	.should.eql(${1:var})
+
+snippet .sd===
+	.should.strictEqual(${1:var1}, ${2:var2})
+
+snippet .sdok
+	.should.be.ok
+
+snippet .sdtrue
+	.should.be.true
+
+snippet .sdwithin
+	.should.be.within(${1:range1}, ${2:range2})
+
+snippet .sd<-
+	.should.be.an.instanceof(${1:class})
+
+snippet .sd<
+	.should.be.below(${1:max})
+
+snippet .sd>
+	.should.be.above(${1:min})
+
+snippet .sdlen
+	.should.have.length(${1:length})
+
+snippet .sdinclude
+	.should.include(${1:item})
+
+snippet .sdkeys
+	.should.have.keys('${1:key1}')
+
+snippet des
+	describe '${1:description}', ->
+
+snippet it
+	it '${1:expectation}', ->
+
+snippet getplayer
+	player = player_mgr.getPlayerByGuid(guid)
+
+snippet readuint
+	buffer_util.readUnsignedInt(${1:buf})
+
+snippet readshort
+	buffer_util.readUnsignedShort(${1:buf})
+
+snippet shebang
+	#!/usr/bin/env ${1:node}
+
+
+
+

@@ -33,9 +33,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-
 "" 以下开始安装各种插件
-
 " http://vim-scripts.org/vim/scripts.html
 
 Plugin 'tpope/vim-fugitive'   " 在 vim 中直接使用 git 指令。 https://github.com/tpope/vim-fugitive
@@ -44,13 +42,16 @@ Plugin 'snipMate'  " TextMate-style snippets for Vim
 Plugin 'Tagbar'  " Display tags of the current file ordered by scope
 Plugin 'The-NERD-Commenter'  " A plugin that allows for easy commenting of code for many filetypes.
 Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
-Plugin 'jsbeautify'  " a javascript source code formatter, <leader> ff
+" Plugin 'jsbeautify'  " a javascript source code formatter, <leader> ff
 " Plugin 'luarefvim'  " Lua reference manual
 Plugin 'vim-coffee-script'  " CoffeeScript support for vim
 Plugin 'leafo/moonscript-vim'  " Adds syntax highlighting and indent support for MoonScript in vim.
 Plugin 'digitaltoad/vim-jade'  " Vim Jade template engine syntax highlighting and indention
 Plugin 'lua-support'  " Lua-IDE -- Write and run Lua-scripts using menus and hotkeys.
 
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 一般设定
