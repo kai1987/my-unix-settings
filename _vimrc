@@ -46,8 +46,9 @@ Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
 " Plugin 'luarefvim'  " Lua reference manual
 Plugin 'vim-coffee-script'  " CoffeeScript support for vim
 Plugin 'leafo/moonscript-vim'  " Adds syntax highlighting and indent support for MoonScript in vim.
-Plugin 'digitaltoad/vim-jade'  " Vim Jade template engine syntax highlighting and indention
+Plugin 'jade.vim'  " Vim Jade template engine syntax highlighting and indention
 Plugin 'lua-support'  " Lua-IDE -- Write and run Lua-scripts using menus and hotkeys.
+Plugin 'yi/QFixToggle'   " Toggle the visibility of the quickfix window
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -223,6 +224,9 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " 用 F1 作为tag bar 的快捷键
 nmap <F1> :TagbarToggle<CR>
+
+" 用 F2 toggle quickfix window
+nmap <F2> :QFix<CR>
 
 " 用 F5 作为 nerd tree 的快捷键
 " nmap <F5> :NERDTreeToggle<CR>
