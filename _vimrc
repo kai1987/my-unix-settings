@@ -7,11 +7,6 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-execute pathogen#infect()
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -21,35 +16,50 @@ command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 \ | wincmd p | diffthis
 \ | wincmd p | diffthis
 
-set guioptions-=T
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim 包管理器 VBundle
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible  " 不要使用vi的键盘模式，而是vim自己的
+set confirm " 在处理未保存或只读文件的时候，弹出确认
+filetype off                  " required
+
+" filetype on  " 侦测文件类型
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+
+"" 以下开始安装各种插件
+
+" http://vim-scripts.org/vim/scripts.html
+
+Plugin 'tpope/vim-fugitive'   " 在 vim 中直接使用 git 指令。 https://github.com/tpope/vim-fugitive
+Plugin 'The-NERD-tree'   " file explorer
+Plugin 'snipMate'  " TextMate-style snippets for Vim
+Plugin 'Tagbar'  " Display tags of the current file ordered by scope
+Plugin 'The-NERD-Commenter'  " A plugin that allows for easy commenting of code for many filetypes.
+Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
+Plugin 'jsbeautify'  " a javascript source code formatter, <leader> ff
+" Plugin 'luarefvim'  " Lua reference manual
+Plugin 'vim-coffee-script'  " CoffeeScript support for vim
+Plugin 'leafo/moonscript-vim'  " Adds syntax highlighting and indent support for MoonScript in vim.
+Plugin 'digitaltoad/vim-jade'  " Vim Jade template engine syntax highlighting and indention
+Plugin 'lua-support'  " Lua-IDE -- Write and run Lua-scripts using menus and hotkeys.
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 一般设定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 设定默认解码
 set encoding=utf-8
-" set fileencodings=utf-8,chinese,latin-1
-set fileencodings=utf-8
-if has("win32")
-set fileencoding=chinese
-else
-set fileencoding=utf-8
-endif
-" language message zh_CN.utf-8
-"解决菜单乱码
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-"set font
-"set guifont=Nsimsun
 
-set nocompatible  " 不要使用vi的键盘模式，而是vim自己的
-
-set confirm " 在处理未保存或只读文件的时候，弹出确认
-
-filetype on  " 侦测文件类型
 
 filetype plugin on  " 载入文件类型插件
-
 filetype indent on  " 为特定文件类型载入相关缩进文件
 
 set iskeyword+=_,$,@,%,#,- " 带有如下符号的单词不要被换行分割
@@ -192,22 +202,15 @@ nnoremap <leader>w <C-w>v<C-w>l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set number
+set number  " 显示行号
 
-let mapleader = "\\"  " use \ as the lead key
+let mapleader = "\\"  " 把 \ 设定为 leader key,  use \ as the lead key
 
 "设置tab操作的快捷键，绑定:tabnew到<leader>t，绑定:tabn, :tabp到<leader>n,
 "<leader>p
 map <leader>t :tabnew<CR>
 map <leader>n :tabn<CR>
 map <leader>p :tabp<CR>
-
-"使用<leader>e打开当前文件同目录中的文件
-"if has("unix")
-"map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-"else
-"map ,e :e <C-R>=expand("%:p:h") . "\" <CR>
-"endif
 
 " 用空格键来开关折叠
 set foldenable
@@ -217,9 +220,12 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " remove all trailing spaces in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" 用f8作为tag bar 的快捷键
+" 用 F1 作为tag bar 的快捷键
 nmap <F1> :TagbarToggle<CR>
-nmap <F5> :NERDTreeToggle<CR>
+
+" 用 F5 作为 nerd tree 的快捷键
+" nmap <F5> :NERDTreeToggle<CR>
+nmap <F5> :Explore<CR>
 
 au FocusLost * :wa "save on losing focus
 
@@ -234,12 +240,11 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 inoremap jj <ESC>
 
 " use Ctrl + Space for auto complition
-inoremap <C-Space> <C-n>
+" inoremap <C-Space> <C-n>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
 "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-
 
 if &term =~ "xterm"
   "256 color --
@@ -255,14 +260,9 @@ if &term =~ "xterm"
   endif
 endif
 
-
-" colo Clouds Midnight
-" colo clouds_midnight
-" colo Mustang_Vim_Colorscheme_by_hcalves
 colo pablo
 
 " add coffee tagbar support: https://github.com/lukaszkorecki/coffeetags
-
 if executable('coffeetags')
     let g:tagbar_type_coffee = {
             \ 'ctagsbin' : 'coffeetags',
@@ -278,8 +278,6 @@ if executable('coffeetags')
             \ }
             \ }
   endif
-
-
 
 "To enable auto-popup for this completion, add following function to plugin/snipMate.vim:
 let g:acp_behaviorSnipmateLength = 1
