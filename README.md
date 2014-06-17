@@ -23,7 +23,7 @@ rm -rf ~/temp/my-unix-settings
 **第2步: 安装 vbundle vim 插件管理器**
 
 ```bash
-git clone -b quick-x https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 
