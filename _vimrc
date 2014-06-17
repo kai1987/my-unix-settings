@@ -240,7 +240,7 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " 用 F1 作为 nerd tree 的快捷键
-nmap <F1> :NERDTree<CR>
+nmap <F1> :NERDTreeToggle<CR>
 
 " 用 F2 toggle quickfix window
 nmap <F2> :QFix<CR>
