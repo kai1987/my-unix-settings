@@ -16,6 +16,20 @@ command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 \ | wincmd p | diffthis
 \ | wincmd p | diffthis
 
+" I use the following (Uses Consolas size 11 on Windows,
+" Menlo Regular size 14 on Mac OS X and Inconsolata size 12 everywhere else):
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=YaHei\ Consolas\ Hybrid:h14
+    "set guifont=Consolas:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim 包管理器 VBundle
@@ -38,7 +52,8 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'   " 在 vim 中直接使用 git 指令。 https://github.com/tpope/vim-fugitive
 Plugin 'The-NERD-tree'   " file explorer
-" Plugin 'snipMate'  " TextMate-style snippets for Vim
+Plugin 'snipMate'  " TextMate-style snippets for Vim
+
 Plugin 'Tagbar'  " Display tags of the current file ordered by scope
 Plugin 'The-NERD-Commenter'  " A plugin that allows for easy commenting of code for many filetypes.
 " Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
@@ -50,22 +65,25 @@ Plugin 'jade.vim'  " Vim Jade template engine syntax highlighting and indention
 Plugin 'lua-support'  " Lua-IDE -- Write and run Lua-scripts using menus and hotkeys.
 Plugin 'yi/QFixToggle'   " Toggle the visibility of the quickfix window
 Plugin 'ctrlp.vim'   " Fuzzy file, buffer, MRU, and tag finder with regexp support.
+" Plugin 'CRefVim'   " C reference
+" Plugin 'luarefvim'   " Lua reference
 Plugin 'Lokaltog/vim-powerline'   " The ultimate vim statusline utility.
 
 " install https://github.com/SirVer/ultisnips
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 
+let g:snippets_dir="~/.vim/snippets/"
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
