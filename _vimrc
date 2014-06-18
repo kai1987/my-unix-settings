@@ -41,31 +41,36 @@ Plugin 'The-NERD-tree'   " file explorer
 " Plugin 'snipMate'  " TextMate-style snippets for Vim
 Plugin 'Tagbar'  " Display tags of the current file ordered by scope
 Plugin 'The-NERD-Commenter'  " A plugin that allows for easy commenting of code for many filetypes.
-" Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
+Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
 " Plugin 'jsbeautify'  " a javascript source code formatter, <leader> ff
 " Plugin 'luarefvim'  " Lua reference manual
-Plugin 'vim-coffee-script'  " CoffeeScript support for vim
+" Plugin 'vim-coffee-script'  " CoffeeScript support for vim
+Plugin 'kchmck/vim-coffee-script'  " CoffeeScript support for vim
 Plugin 'leafo/moonscript-vim'  " Adds syntax highlighting and indent support for MoonScript in vim.
 Plugin 'jade.vim'  " Vim Jade template engine syntax highlighting and indention
-Plugin 'lua-support'  " Lua-IDE -- Write and run Lua-scripts using menus and hotkeys.
+" Plugin 'lua-support'  " Lua-IDE -- Write and run Lua-scripts using menus and hotkeys.
+Plugin 'xolox/vim-misc'  " required by lua.vim
+Plugin 'yi/lua.vim'  " Lua file type plug-in for the Vim text editor
 Plugin 'yi/QFixToggle'   " Toggle the visibility of the quickfix window
 Plugin 'ctrlp.vim'   " Fuzzy file, buffer, MRU, and tag finder with regexp support.
 Plugin 'Lokaltog/vim-powerline'   " The ultimate vim statusline utility.
 
 " install https://github.com/SirVer/ultisnips
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsEditSplit="vertical"
 
+" turn on omni completion of lua.vim
+let g:lua_complete_omni = 1
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -250,6 +255,11 @@ nmap <F3> :CtrlP<CR>
 
 " 用 F5 作为tag bar 的快捷键
 nmap <F5> :TagbarToggle<CR>
+
+" 按 F6 或者 \lc 执行 CoffeeLint
+nmap <F6> :CoffeeLint<CR>:QFix<CR>
+nnoremap <leader>lc :CoffeeLint<CR>:QFix<CR>
+
 
 au FocusLost * :wa "save on losing focus
 
