@@ -250,7 +250,7 @@ map <leader>n :tabn<CR>
 map <leader>p :tabp<CR>
 
 " 用空格键来开关折叠
-set foldenable
+set nofoldenable
 set foldmethod=marker
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
