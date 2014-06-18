@@ -333,5 +333,5 @@ if executable('coffeetags')
   endif
 
 "To enable auto-popup for this completion, add following function to plugin/snipMate.vim:
-"let g:acp_behaviorSnipmateLength = 1
+let g:acp_behaviorSnipmateLength = 1
 
