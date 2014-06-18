@@ -1,0 +1,535 @@
+#################################
+# Snippets for the Lua language #
+#################################
+snippet shebang "Shebang header" b
+	#!/usr/bin/env lua
+	$0
+	endsnippet
+
+snippet !fun(ction)?! "New function" br
+	function ${1:new_function}(${2:args})
+		$0
+	end
+
+snippet forp "pair for loop" b
+	for ${1:name},${2:val} in pairs(${3:table_name}) do
+		$0
+	end
+
+snippet fori "ipair for foop" b
+	for ${1:idx},${2:val} in ipairs(${3:table_name}) do
+		$0
+	end
+
+snippet for "numeric for loop" b
+	for ${1:i}=${2:first},${3:last}${4/^..*/(?0:,:)/}${4:step} do
+		$0
+	end
+
+snippet local "local x = 1"
+	local ${1:x} = ${0:1}
+
+
+##### quick-x support : start ####
+
+snippet device.showActivityIndicator "quickx: 显示活动指示器"
+	device.showActivityIndicator()
+
+snippet device.hideActivityIndicator() "quickx: 隐藏正在显示的活动指示器"
+	device.hideActivityIndicator()
+
+snippet device.showAlert() "quickx: 显示一个包含按钮的弹出对话框"
+	device.showAlert(${1:title}, ${2:message}, ${3:buttonLabels}, ${4:listener})
+
+snippet device.cancelAlert() "quickx: 取消正在显示的对话框。"
+	device.cancelAlert()
+
+snippet device.getOpenUDID() "quickx: 返回设备的 OpenUDID 值"
+	device.getOpenUDID()
+
+snippet device.openURL() "quickx: 用浏览器打开指定的网址"
+	device.openURL(${1:url})
+
+snippet device.showInputBox() "quickx: 显示一个输入框，并返回用户输入的内容。"
+	device.showInputBox(${1:title}, ${2:message}, ${3:defaultValue})
+
+snippet device.platform "quickx: 返回当前运行平台的名字，可用值： ios, android, mac, windows."
+	device.platform
+
+snippet device.model "quickx: 返回设备型号，可用值： unknown, iphone, ipad"
+	device.model
+
+snippet device.language "quickx: 返回设备当前使用的语言，可用值："
+	device.language
+
+snippet device.writablePath "quickx: 返回设备上可以写入数据的首选路径："
+	device.writablePath
+
+snippet device.cachePath "quickx: 返回设备上可以写入数据的缓存目录："
+	device.cachePath
+
+snippet device.directorySeparator "quickx: 目录分隔符，在 Windows 平台上是 “\”，其他平台都是 “/”"
+	device.directorySeparator
+
+snippet device.pathSeparator "quickx: 路径分隔符，在 Windows 平台上是 “;”，其他平台都是 “:”"
+	device.pathSeparator
+
+snippet audio.getMusicVolume() "quickx: 返回音乐的音量值"
+	audio.getMusicVolume()
+
+snippet audio.setMusicVolume() "quickx: 设置音乐的音量"
+	audio.setMusicVolume(${1:volume})
+
+snippet audio.getSoundsVolume() "quickx: 返回音效的音量值"
+	audio.getSoundsVolume()
+
+snippet audio.setSoundsVolume() "quickx: 设置音效的音量"
+	audio.setSoundsVolume(${1:volume})
+
+snippet audio.preloadMusic() "quickx: 预载入一个音乐文件"
+	audio.preloadMusic(${1:filename})
+
+snippet audio.playMusic() "quickx: 播放音乐"
+	audio.playMusic(${1:filename}, ${1:isLoop})
+
+snippet audio.stopMusic() "quickx: 停止播放音乐"
+	audio.stopMusic(${1:isReleaseData})
+
+snippet audio.pauseMusic() "quickx: 暂停音乐的播放"
+	audio.pauseMusic()
+
+snippet audio.resumeMusic() "quickx: 恢复暂停的音乐"
+	audio.resumeMusic()
+
+snippet audio.rewindMusic() "quickx: 从头开始重新播放当前音乐"
+	audio.rewindMusic()
+
+snippet audio.willPlayMusic() "quickx: 检查是否可以开始播放音乐"
+	audio.willPlayMusic()
+
+snippet audio.isMusicPlaying() "quickx: 检查当前是否正在播放音乐"
+	audio.isMusicPlaying()
+
+snippet audio.playSound() "quickx: 播放音效，并返回音效句柄"
+	audio.playSound(${1:filename}, ${1:isLoop})
+
+snippet audio.pauseSound() "quickx: 暂停指定的音效"
+	audio.pauseSound(${1:handle})
+
+snippet audio.pauseAllSounds() "quickx: 暂停所有音效"
+	audio.pauseAllSounds()
+
+snippet audio.resumeSound() "quickx: 恢复暂停的音效"
+	audio.resumeSound(${1:handle})
+
+snippet audio.resumeAllSounds() "quickx: 恢复所有的音效"
+	audio.resumeAllSounds()
+
+snippet audio.stopSound() "quickx: 停止指定的音效"
+	audio.stopSound(${1:handle})
+
+snippet audio.stopAllSounds() "quickx: 停止所有音效"
+	audio.stopAllSounds()
+
+snippet audio.preloadSound() "quickx: 预载入一个音效文件"
+	audio.preloadSound(${1:filename})
+
+snippet audio.unloadSound() "quickx: 从内存卸载一个音效"
+	audio.unloadSound(${1:filename})
+
+snippet cc.NODE_EVENT "quickx: - enter, exit 等事件"
+	cc.NODE_EVENT
+
+snippet cc.NODE_ENTER_FRAME_EVENT "quickx: - 帧事件"
+	cc.NODE_ENTER_FRAME_EVENT
+
+snippet cc.NODE_TOUCH_EVENT "quickx: - 触摸事件"
+	cc.NODE_TOUCH_EVENT
+
+snippet cc.NODE_TOUCH_CAPTURE_EVENT "quickx: - 捕获触摸事件"
+	cc.NODE_TOUCH_CAPTURE_EVENT
+
+snippet cc.ACCELERATE_EVENT "quickx: - 重力感应事件"
+	cc.ACCELERATE_EVENT
+
+snippet cc.KEYPAD_EVENT "quickx: - 硬件按键事件"
+	cc.KEYPAD_EVENT
+
+snippet cc.MENU_ITEM_CLICKED_EVENT "quickx: - CCMenu 菜单项点击事件"
+	cc.MENU_ITEM_CLICKED_EVENT
+
+snippet cc.TOUCH_MODE_ALL_AT_ONCE "quickx: - 多点触摸"
+	cc.TOUCH_MODE_ALL_AT_ONCE
+
+snippet cc.TOUCH_MODE_ONE_BY_ONE "quickx: - 单点触摸"
+	cc.TOUCH_MODE_ONE_BY_ONE
+
+snippet crypto.encryptAES256() "quickx: 使用 AES256 算法加密内容"
+	crypto.encryptAES256(${1:plaintext}, ${1:key})
+
+snippet crypto.decryptAES256() "quickx: 使用 AES256 算法解密内容"
+	crypto.decryptAES256(${1:ciphertext}, ${1:key})
+
+snippet crypto.encryptXXTEA() "quickx: 使用 XXTEA 算法加密内容"
+	crypto.encryptXXTEA(${1:plaintext}, ${1:key})
+
+snippet crypto.decryptXXTEA() "quickx: 使用 XXTEA 算法解密内容"
+	crypto.decryptXXTEA(${1:ciphertext}, ${1:key})
+
+snippet crypto.encodeBase64() "quickx: 使用 BASE64 算法编码内容"
+	crypto.encodeBase64(${1:plaintext})
+
+snippet crypto.decodeBase64() "quickx: 使用 BASE64 算法解码内容"
+	crypto.decodeBase64(${1:ciphertext})
+
+snippet crypto.md5() "quickx: 计算内容的 MD5 码"
+	crypto.md5(${1:input}, ${1:isRawOutput})
+
+snippet crypto.md5file() "quickx: 计算文件的 MD5 码"
+	crypto.md5file(${1:path})
+
+snippet DEPRECATED() "quickx: 定义一个作废的接口"
+	DEPRECATED(${1:f}, ${1:name}, ${1:newname})
+
+snippet PRINT_DEPRECATED() "quickx: 显示作废信息"
+	PRINT_DEPRECATED(${1:msg})
+
+snippet printLog() "quickx: 打印调试信息"
+	printLog(${1:tag}, ${1:fmt})
+
+snippet printError() "quickx: 输出 tag 为 ERR 的调试信息"
+	printError(${1:fmt})
+
+snippet printInfo() "quickx: 输出 tag 为 INFO 的调试信息"
+	printInfo(${1:fmt})
+
+snippet dump() "quickx: 输出值的内容"
+	dump(${1:value}, ${1:desciption}, ${1:nesting})
+
+snippet display.newScene() "quickx: 创建一个新场景，并返回 CCScene 场景对象。"
+	display.newScene(${1:name})
+
+snippet display.wrapSceneWithTransition() "quickx: 用场景切换过渡效果包装场景对象，并返回场景过渡对象。"
+	display.wrapSceneWithTransition(${1:scene}, ${1:transitionType}, ${1:time}, ${1:more})
+
+snippet display.replaceScene() "quickx: 切换到新场景"
+	display.replaceScene(${1:newScene}, ${1:transitionType}, ${1:time}, ${1:more})
+
+snippet display.getRunningScene() "quickx: 返回当前正在运行的场景对象"
+	display.getRunningScene()
+
+snippet display.pause() "quickx: 暂停当前场景"
+	display.pause()
+
+snippet display.resume() "quickx: 恢复当前暂停的场景"
+	display.resume()
+
+snippet display.newLayer() "quickx: 创建并返回一个 CCLayer 层对象"
+	display.newLayer()
+
+snippet display.newColorLayer() "quickx: 创建一个颜色填充层"
+	display.newColorLayer(${1:color})
+
+snippet display.newNode() "quickx: 创建并返回一个 CCNode 对象"
+	display.newNode()
+
+snippet display.newClippingRegionNode() "quickx: 创建并返回一个 CCClippingRegionNode 对象。"
+	display.newClippingRegionNode(${1:rect})
+
+snippet display.newSprite() "quickx: 创建并返回一个 CCSprite 显示对象。"
+	display.newSprite(${1:filename}, ${1:x}, ${1:y}, ${1:params})
+
+snippet display.newScale9Sprite() "quickx: 创建并返回一个 CCSprite9Scale 显示对象。"
+	display.newScale9Sprite(${1:filename}, ${1:x}, ${1:y}, ${1:size})
+
+snippet display.newTilesSprite() "quickx: create a new tile sprit"
+	display.newTilesSprite(${1:filename}, ${1:rect})
+
+snippet display.newTiledBatchNode() "quickx: create a tiled CCSpriteBatchNode, the image can not a POT file."
+	display.newTiledBatchNode(${1:filename}, ${1:plistFile}, ${1:size}, ${1:hPadding}, ${1:vPadding})
+
+snippet display.newMaskedSprite() "quickx: Create a masked sprite"
+	display.newMaskedSprite(${1:__mask}, ${1:__pic})
+
+snippet display.newFilteredSprite() "quickx: Create a Filtered Sprite"
+	display.newFilteredSprite(${1:filename}, ${1:filters}, ${1:params})
+
+snippet display.newGraySprite() "quickx: Create a Gray Sprite by CCFilteredSprite"
+	display.newGraySprite(${1:filename}, ${1:params})
+
+snippet display.newCircle() "quickx: 创建并返回一个 CCCircleShape （圆）对象。"
+	display.newCircle(${1:radius}, ${1:params})
+
+snippet display.newRect() "quickx: 创建并返回一个 CCRectShape （矩形）对象。"
+	display.newRect(${1:width}, ${1:height}, ${1:params})
+
+snippet display.newPolygon() "quickx: 创建并返回一个 CCPolygonShape （多边形）对象。"
+	display.newPolygon(${1:points}, ${1:scale})
+
+snippet display.align() "quickx: 将指定的显示对象按照特定锚点对齐。"
+	display.align(${1:target}, ${1:anchorPoint}, ${1:x}, ${1:y})
+
+snippet display.addSpriteFramesWithFile() "quickx: 将指定的 Sprite Sheets 材质文件及其数据文件载入图像帧缓存。"
+	display.addSpriteFramesWithFile(${1:plistFilename}, ${1:image}, ${1:handler})
+
+snippet display.removeSpriteFramesWithFile() "quickx: 从内存中卸载 Sprite Sheets 材质和数据文件"
+	display.removeSpriteFramesWithFile(${1:plistFilename}, ${1:imageName})
+
+snippet display.setTexturePixelFormat() "quickx: 设置材质格式。"
+	display.setTexturePixelFormat(${1:filename}, ${1:format})
+
+snippet display.removeSpriteFrameByImageName() "quickx: 从图像帧缓存中删除一个图像。"
+	display.removeSpriteFrameByImageName(${1:imageName})
+
+snippet display.newBatchNode() "quickx: 从指定的图像文件创建并返回一个批量渲染对象。"
+	display.newBatchNode(${1:image}, ${1:capacity})
+
+snippet display.newSpriteFrame() "quickx: 创建并返回一个图像帧对象。"
+	display.newSpriteFrame(${1:frameName})
+
+snippet display.newFrames() "quickx: 以特定模式创建一个包含多个图像帧对象的数组。"
+	display.newFrames(${1:pattern}, ${1:begin}, ${1:length}, ${1:isReversed})
+
+snippet display.newAnimation() "quickx: 以包含图像帧的数组创建一个动画对象。"
+	display.newAnimation(${1:frames}, ${1:time})
+
+snippet display.getAnimationCache() "quickx: 取得以指定名字缓存的动画对象，如果不存在则返回 nil。"
+	display.getAnimationCache(${1:name})
+
+snippet display.removeAnimationCache() "quickx: 删除指定名字缓存的动画对象。"
+	display.removeAnimationCache(${1:name})
+
+snippet printf() "quickx: 输出格式化字符串"
+	printf(${1:fmt})
+
+snippet checknumber() "quickx: 检查并尝试转换为数值，如果无法转换则返回 0"
+	checknumber(${1:value}, ${1:base})
+
+snippet checkint() "quickx: 检查并尝试转换为整数，如果无法转换则返回 0"
+	checkint(${1:value})
+
+snippet checkbool() "quickx: 检查并尝试转换为布尔值，除了 nil 和 false，其他任何值都会返回 true"
+	checkbool(${1:value})
+
+snippet checktable() "quickx: 检查值是否是一个表格，如果不是则返回一个空表格"
+	checktable(${1:value})
+
+snippet isset() "quickx: 如果表格中指定 key 的值为 nil，或者输入值不是表格，返回 false，否则返回 true"
+	isset(${1:hashtable}, ${1:key})
+
+snippet clone() "quickx: 深度克隆一个值"
+	clone(${1:object})
+
+snippet class() "quickx: 创建一个类"
+	class(${1:classname}, ${1:super})
+
+snippet iskindof() "quickx: 如果对象是指定类或其子类的实例，返回 true，否则返回 false"
+	iskindof(${1:obj}, ${1:classname})
+
+snippet import() "quickx: 载入一个模块"
+	import(${1:moduleName}, ${1:currentModuleName})
+
+snippet handler() "quickx: 将 Lua 对象及其方法包装为一个匿名函数"
+	handler(${1:obj}, ${1:method})
+
+snippet math.newrandomseed() "quickx: 根据系统时间初始化随机数种子，让后续的 math.random() 返回更随机的值"
+	math.newrandomseed()
+
+snippet math.round() "quickx: 对数值进行四舍五入，如果不是数值则返回 0"
+	math.round(${1:value})
+
+snippet io.exists() "quickx: 检查指定的文件或目录是否存在，如果存在返回 true，否则返回 false"
+	io.exists(${1:path})
+
+snippet io.readfile() "quickx: 读取文件内容，返回包含文件内容的字符串，如果失败返回 nil"
+	io.readfile(${1:path})
+
+snippet io.writefile() "quickx: 以字符串内容写入文件，成功返回 true，失败返回 false"
+	io.writefile(${1:path}, ${1:content}, ${1:mode})
+
+snippet io.pathinfo() "quickx: 拆分一个路径字符串，返回组成路径的各个部分"
+	io.pathinfo(${1:path})
+
+snippet io.filesize() "quickx: 返回指定文件的大小，如果失败返回 false"
+	io.filesize(${1:path})
+
+snippet table.nums() "quickx: 计算表格包含的字段数量"
+	table.nums(${1:t})
+
+snippet table.keys() "quickx: 返回指定表格中的所有键"
+	table.keys(${1:hashtable})
+
+snippet table.values() "quickx: 返回指定表格中的所有值"
+	table.values(${1:hashtable})
+
+snippet table.merge() "quickx: 将来源表格中所有键及其值复制到目标表格对象中，如果存在同名键，则覆盖其值"
+	table.merge(${1:dest}, ${1:src})
+
+snippet table.insertto() "quickx: 在目标表格的指定位置插入来源表格，如果没有指定位置则连接两个表格"
+	table.insertto(${1:dest}, ${1:src}, ${1:begin})
+
+snippet table.keyof() "quickx: 从表格中查找指定值，返回其 key，如果没找到返回 nil"
+	table.keyof(${1:hashtable}, ${1:value})
+
+snippet table.removebyvalue() "quickx: 从表格中删除指定值，返回删除的值的个数"
+	table.removebyvalue(${1:array}, ${1:value}, ${1:removeall})
+
+snippet table.map() "quickx: 对表格中每一个值执行一次指定的函数，并用函数返回值更新表格内容"
+	table.map(${1:t}, ${1:fn})
+
+snippet table.walk() "quickx: 对表格中每一个值执行一次指定的函数，但不改变表格内容"
+	table.walk(${1:t}, ${1:fn})
+
+snippet table.filter() "quickx: 对表格中每一个值执行一次指定的函数，如果该函数返回 false，则对应的值会从表格中删除"
+	table.filter(${1:t}, ${1:fn})
+
+snippet table.unique() "quickx: 遍历表格，确保其中的值唯一"
+	table.unique(${1:t})
+
+snippet string.htmlspecialchars() "quickx: 将特殊字符转为 HTML 转义符"
+	string.htmlspecialchars(${1:input})
+
+snippet string.restorehtmlspecialchars() "quickx: 将 HTML 转义符还原为特殊字符，功能与 string.htmlspecialchars() 正好相反"
+	string.restorehtmlspecialchars(${1:input})
+
+snippet string.nl2br() "quickx: 将字符串中的 \n 换行符转换为 HTML 标记"
+	string.nl2br(${1:input})
+
+snippet string.text2html() "quickx: 将字符串中的特殊字符和 \n 换行符转换为 HTML 转移符和标记"
+	string.text2html(${1:input})
+
+snippet string.split() "quickx: 用指定字符或字符串分割输入字符串，返回包含分割结果的数组"
+	string.split(${1:input}, ${1:delimiter})
+
+snippet string.ltrim() "quickx: 去除输入字符串头部的空白字符，返回结果"
+	string.ltrim(${1:input})
+
+snippet string.rtrim() "quickx: 去除输入字符串尾部的空白字符，返回结果"
+	string.rtrim(${1:input})
+
+snippet string.trim() "quickx: 去掉字符串首尾的空白字符，返回结果"
+	string.trim(${1:input})
+
+snippet string.ucfirst() "quickx: 将字符串的第一个字符转为大写，返回结果"
+	string.ucfirst(${1:input})
+
+snippet string.urlencode() "quickx: 将字符串转换为符合 URL 传递要求的格式，并返回转换结果"
+	string.urlencode(${1:input})
+
+snippet string.urldecode() "quickx: 将 URL 中的特殊字符还原，并返回结果"
+	string.urldecode(${1:input})
+
+snippet string.utf8len() "quickx: 计算 UTF8 字符串的长度，每一个中文算一个字符"
+	string.utf8len(${1:input})
+
+snippet string.formatnumberthousands() "quickx: 将数值格式化为包含千分位分隔符的字符串"
+	string.formatnumberthousands(${1:num})
+
+snippet LOAD_DEPRECATED_API "quickx: 是否载入过时的 API 定义，默认为 false"
+	LOAD_DEPRECATED_API
+
+snippet DISABLE_DEPRECATED_WARNING "quickx: 使用过时的 API 时是否显示警告信息，默认为 true"
+	DISABLE_DEPRECATED_WARNING
+
+snippet USE_DEPRECATED_EVENT_ARGUMENTS "quickx: 是否使用过时的 Node 事件参数格式，默认为 false"
+	USE_DEPRECATED_EVENT_ARGUMENTS
+
+snippet DEBUG_MEM "quickx: 设置是否输出内存占用信息"
+	DEBUG_MEM
+
+snippet DEBUG_FPS "quickx: 设置是否在画面中显示渲染帧率等信息"
+	DEBUG_FPS
+
+snippet DEBUG "quickx: 设置框架的调试输出级别"
+	DEBUG
+
+snippet json.encode() "quickx: 将表格数据编码为 JSON 字符串"
+	json.encode(${1:var})
+
+snippet json.decode() "quickx: 将 JSON 字符串解码为表格对象"
+	json.decode(${1:text})
+
+snippet network.isLocalWiFiAvailable() "quickx: 检查地 WIFI 网络是否可用"
+	network.isLocalWiFiAvailable()
+
+snippet network.isInternetConnectionAvailable() "quickx: 检查互联网连接是否可用"
+	network.isInternetConnectionAvailable()
+
+snippet network.isHostNameReachable() "quickx: 检查是否可以解析指定的主机名"
+	network.isHostNameReachable(${1:hostname})
+
+snippet network.getInternetConnectionStatus() "quickx: 返回互联网连接状态值"
+	network.getInternetConnectionStatus()
+
+snippet network.createHTTPRequest() "quickx: 创建异步 HTTP 请求，并返回 CCHTTPRequest 对象。"
+	network.createHTTPRequest(${1:callback}, ${1:url}, ${1:method})
+
+snippet scheduler.scheduleUpdateGlobal() "quickx: 计划一个全局帧事件回调，并返回该计划的句柄。"
+	scheduler.scheduleUpdateGlobal(${1:listener})
+
+snippet scheduler.scheduleGlobal() "计划一个以指定时间间隔执行的全局事件回调，并返回该计划的句柄。"quickx:
+	scheduler.scheduleGlobal(${1:listener}, ${1:interval})
+
+snippet scheduler.unscheduleGlobal() "quickx: 取消一个全局计划"
+	scheduler.unscheduleGlobal(${1:handle})
+
+snippet scheduler.performWithDelayGlobal() "quickx: 计划一个全局延时回调，并返回该计划的句柄。"
+	scheduler.performWithDelayGlobal(${1:listener}, ${1:time})
+
+snippet transition.newEasing() "quickx: 为图像创造效果"
+	transition.newEasing(${1:action}, ${1:easingName}, ${1:more})
+
+snippet transition.execute() "quickx: 执行一个动作效果"
+	transition.execute(${1:target}, ${1:action}, ${1:args})
+
+snippet transition.rotateTo() "quickx: 将显示对象旋转到指定角度，并返回 CCAction 动作对象。"
+	transition.rotateTo(${1:target}, ${1:args})
+
+snippet transition.moveTo() "quickx: 将显示对象移动到指定位置，并返回 CCAction 动作对象。"
+	transition.moveTo(${1:target}, ${1:args})
+
+snippet transition.fadeTo() "quickx: 将显示对象的透明度改变为指定值，并返回 CCAction 动作对象。"
+	transition.fadeTo(${1:target}, ${1:args})
+
+snippet transition.scaleTo() "quickx: 将显示对象缩放到指定比例，并返回 CCAction 动作对象。"
+	transition.scaleTo(${1:target}, ${1:args})
+
+snippet transition.sequence() "quickx: 创建一个动作序列对象。"
+	transition.sequence(${1:actions})
+
+snippet transition.playAnimationOnce() "quickx: 在显示对象上播放一次动画，并返回 CCAction 动作对象。"
+	transition.playAnimationOnce(${1:target}, ${1:animation}, ${1:removeWhenFinished}, ${1:onComplete}, ${1:delay})
+
+snippet ui.newEditBox() "quickx: 创建一个文字输入框，并返回 CCEditBox 对象。"
+	ui.newEditBox(${1:params})
+
+snippet ui.newMenu() "quickx: 创建菜单，并返回 CCMenu 对象。"
+	ui.newMenu(${1:items})
+
+snippet ui.newImageMenuItem() "quickx: 创建一个图像菜单项，并返回 CCMenuItemSprite 对象。"
+	ui.newImageMenuItem(${1:params})
+
+snippet ui.newTTFLabelMenuItem() "quickx: 创建一个文字标签菜单项，并返回 CCMenuItemLabel 对象。"
+	ui.newTTFLabelMenuItem(${1:params})
+
+snippet ui.newBMFontLabel() "用位图字体创建文本显示对象，并返回 CCLabelBMFont 对象。"quickx:
+	ui.newBMFontLabel(${1:params})
+
+snippet ui.newTTFLabel() "quickx: 使用 TTF 字体创建文字显示对象，并返回 CCLabelTTF 对象。"
+	ui.newTTFLabel(${1:params})
+
+snippet ui.newTTFLabelWithShadow() "quickx: 创建带阴影的 TTF 文字显示对象，并返回 CCLabelTTF 对象。"
+	ui.newTTFLabelWithShadow(${1:params})
+
+snippet ui.newTTFLabelWithOutline() "quickx: 创建带描边效果的 TTF 文字显示对象，并返回 CCLabelTTF 对象。"
+	ui.newTTFLabelWithOutline(${1:params})
+
+##### quick-x support : end ####
+
+
+##### cocos2d-x lua support : start ####
+
+
+
+
+##### cocos2d-x lua support : end ####
