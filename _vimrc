@@ -56,6 +56,7 @@ Plugin 'The-NERD-tree'   " file explorer
 Plugin 'yi/snipmate.vim'  " TextMate-style snippets for Vim
 Plugin 'Tagbar'  " Display tags of the current file ordered by scope
 Plugin 'The-NERD-Commenter'  " A plugin that allows for easy commenting of code for many filetypes.
+"Plugin 'Shougo/neocomplcache.vim'  " Ultimate auto-completion system for Vim
 Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
 " Plugin 'jsbeautify'  " a javascript source code formatter, <leader> ff
 " Plugin 'luarefvim'  " Lua reference manual
@@ -88,7 +89,6 @@ Plugin 'Lokaltog/vim-powerline'   " The ultimate vim statusline utility.
 
 " turn on omni completion of lua.vim
 let g:lua_complete_omni = 1
-
 let g:snippets_dir="~/.vim/snippets/"
 
 " All of your Plugins must be added before the following line
@@ -333,5 +333,5 @@ if executable('coffeetags')
   endif
 
 "To enable auto-popup for this completion, add following function to plugin/snipMate.vim:
-let g:acp_behaviorSnipmateLength = 1
+"let g:acp_behaviorSnipmateLength = 1
 
