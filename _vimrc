@@ -52,11 +52,11 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'   " 在 vim 中直接使用 git 指令。 https://github.com/tpope/vim-fugitive
 Plugin 'The-NERD-tree'   " file explorer
-Plugin 'snipMate'  " TextMate-style snippets for Vim
-
+" Plugin 'snipMate'  " TextMate-style snippets for Vim
+Plugin 'yi/snipmate.vim'  " TextMate-style snippets for Vim
 Plugin 'Tagbar'  " Display tags of the current file ordered by scope
 Plugin 'The-NERD-Commenter'  " A plugin that allows for easy commenting of code for many filetypes.
-" Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
+Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
 " Plugin 'jsbeautify'  " a javascript source code formatter, <leader> ff
 " Plugin 'luarefvim'  " Lua reference manual
 Plugin 'vim-coffee-script'  " CoffeeScript support for vim
