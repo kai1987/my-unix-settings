@@ -16,6 +16,20 @@ command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 \ | wincmd p | diffthis
 \ | wincmd p | diffthis
 
+" I use the following (Uses Consolas size 11 on Windows,
+" Menlo Regular size 14 on Mac OS X and Inconsolata size 12 everywhere else):
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=YaHei\ Consolas\ Hybrid:h14
+    "set guifont=Consolas:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim 包管理器 VBundle
