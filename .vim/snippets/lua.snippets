@@ -266,7 +266,7 @@ snippet display.newRect() "创建并返回一个 CCRectShape （矩形）对象�
 	display.newRect(${1:width}, ${1:height}, ${1:params})
 
 snippet display.newPolygon() "创建并返回一个 CCPolygonShape （多边形）对象。"
-	display.newPolygon(points, ${1:scale})
+	display.newPolygon(${1:points}, ${1:scale})
 
 snippet display.align() "将指定的显示对象按照特定锚点对齐。"
 	display.align(${1:target}, ${1:anchorPoint}, ${1:x}, ${1:y})
@@ -293,7 +293,7 @@ snippet display.newFrames() "以特定模式创建一个包含多个图像帧对
 	display.newFrames(${1:pattern}, ${1:begin}, ${1:length}, ${1:isReversed})
 
 snippet display.newAnimation() "以包含图像帧的数组创建一个动画对象。"
-	display.newAnimation(frames, ${1:time})
+	display.newAnimation(${1:frames}, ${1:time})
 
 snippet display.getAnimationCache() "取得以指定名字缓存的动画对象，如果不存在则返回 nil。"
 	display.getAnimationCache(${1:name})
@@ -305,7 +305,7 @@ snippet printf() "输出格式化字符串"
 	printf(${1:fmt})
 
 snippet checknumber() "检查并尝试转换为数值，如果无法转换则返回 0"
-	checknumber(value, ${1:base})
+	checknumber(${1:value}, ${1:base})
 
 snippet checkint() "检查并尝试转换为整数，如果无法转换则返回 0"
 	checkint(${1:value})
@@ -317,22 +317,22 @@ snippet checktable() "检查值是否是一个表格，如果不是则返回一�
 	checktable(${1:value})
 
 snippet isset() "如果表格中指定 key 的值为 nil，或者输入值不是表格，返回 false，否则返回 true"
-	isset(hashtable, ${1:key})
+	isset(${1:hashtable}, ${1:key})
 
 snippet clone() "深度克隆一个值"
 	clone(${1:object})
 
 snippet class() "创建一个类"
-	class(classname, ${1:super})
+	class(${1:classname}, ${1:super})
 
 snippet iskindof() "如果对象是指定类或其子类的实例，返回 true，否则返回 false"
-	iskindof(obj, ${1:classname})
+	iskindof(${1:obj}, ${1:classname})
 
 snippet import() "载入一个模块"
-	import(moduleName, ${1:currentModuleName})
+	import(${1:moduleName}, ${1:currentModuleName})
 
 snippet handler() "将 Lua 对象及其方法包装为一个匿名函数"
-	handler(obj, ${1:method})
+	handler(${1:obj}, ${1:method})
 
 snippet math.newrandomseed() "根据系统时间初始化随机数种子，让后续的 math.random() 返回更随机的值"
 	math.newrandomseed()
@@ -347,7 +347,7 @@ snippet io.readfile() "读取文件内容，返回包含文件内容的字符串
 	io.readfile(${1:path})
 
 snippet io.writefile() "以字符串内容写入文件，成功返回 true，失败返回 false"
-	io.writefile(path, content, ${1:mode})
+	io.writefile(${1:path}, ${1:content}, ${1:mode})
 
 snippet io.pathinfo() "拆分一个路径字符串，返回组成路径的各个部分"
 	io.pathinfo(${1:path})
@@ -365,25 +365,25 @@ snippet table.values() "返回指定表格中的所有值"
 	table.values(${1:hashtable})
 
 snippet table.merge() "将来源表格中所有键及其值复制到目标表格对象中，如果存在同名键，则覆盖其值"
-	table.merge(dest, ${1:src})
+	table.merge(${1:dest}, ${1:src})
 
 snippet table.insertto() "在目标表格的指定位置插入来源表格，如果没有指定位置则连接两个表格"
-	table.insertto(dest, src, ${1:begin})
+	table.insertto(${1:dest}, ${1:src}, ${1:begin})
 
 snippet table.keyof() "从表格中查找指定值，返回其 key，如果没找到返回 nil"
-	table.keyof(hashtable, ${1:value})
+	table.keyof(${1:hashtable}, ${1:value})
 
 snippet table.removebyvalue() "从表格中删除指定值，返回删除的值的个数"
-	table.removebyvalue(array, value, ${1:removeall})
+	table.removebyvalue(${1:array}, ${1:value}, ${1:removeall})
 
 snippet table.map() "对表格中每一个值执行一次指定的函数，并用函数返回值更新表格内容"
-	table.map(t, ${1:fn})
+	table.map(${1:t}, ${1:fn})
 
 snippet table.walk() "对表格中每一个值执行一次指定的函数，但不改变表格内容"
-	table.walk(t, ${1:fn})
+	table.walk(${1:t}, ${1:fn})
 
 snippet table.filter() "对表格中每一个值执行一次指定的函数，如果该函数返回 false，则对应的值会从表格中删除"
-	table.filter(t, ${1:fn})
+	table.filter(${1:t}, ${1:fn})
 
 snippet table.unique() "遍历表格，确保其中的值唯一"
 	table.unique(${1:t})
@@ -401,7 +401,7 @@ snippet string.text2html() "将字符串中的特殊字符和 \n 换行符转换
 	string.text2html(${1:input})
 
 snippet string.split() "用指定字符或字符串分割输入字符串，返回包含分割结果的数组"
-	string.split(input, ${1:delimiter})
+	string.split(${1:input}, ${1:delimiter})
 
 snippet string.ltrim() "去除输入字符串头部的空白字符，返回结果"
 	string.ltrim(${1:input})
@@ -464,43 +464,43 @@ snippet network.getInternetConnectionStatus() "返回互联网连接状态值"
 	network.getInternetConnectionStatus()
 
 snippet network.createHTTPRequest() "创建异步 HTTP 请求，并返回 CCHTTPRequest 对象。"
-	network.createHTTPRequest(callback, url, ${1:method})
+	network.createHTTPRequest(${1:callback}, ${1:url}, ${1:method})
 
 snippet scheduler.scheduleUpdateGlobal() "计划一个全局帧事件回调，并返回该计划的句柄。"
 	scheduler.scheduleUpdateGlobal(${1:listener})
 
 snippet scheduler.scheduleGlobal() "计划一个以指定时间间隔执行的全局事件回调，并返回该计划的句柄。"
-	scheduler.scheduleGlobal(listener, ${1:interval})
+	scheduler.scheduleGlobal(${1:listener}, ${1:interval})
 
 snippet scheduler.unscheduleGlobal() "取消一个全局计划"
 	scheduler.unscheduleGlobal(${1:handle})
 
 snippet scheduler.performWithDelayGlobal() "计划一个全局延时回调，并返回该计划的句柄。"
-	scheduler.performWithDelayGlobal(listener, ${1:time})
+	scheduler.performWithDelayGlobal(${1:listener}, ${1:time})
 
 snippet transition.newEasing() "为图像创造效果"
-	transition.newEasing(action, easingName, ${1:more})
+	transition.newEasing(${1:action}, ${1:easingName}, ${1:more})
 
 snippet transition.execute() "执行一个动作效果"
-	transition.execute(target, action, ${1:args})
+	transition.execute(${1:target}, ${1:action}, ${1:args})
 
 snippet transition.rotateTo() "将显示对象旋转到指定角度，并返回 CCAction 动作对象。"
-	transition.rotateTo(target, ${1:args})
+	transition.rotateTo(${1:target}, ${1:args})
 
 snippet transition.moveTo() "将显示对象移动到指定位置，并返回 CCAction 动作对象。"
-	transition.moveTo(target, ${1:args})
+	transition.moveTo(${1:target}, ${1:args})
 
 snippet transition.fadeTo() "将显示对象的透明度改变为指定值，并返回 CCAction 动作对象。"
-	transition.fadeTo(target, ${1:args})
+	transition.fadeTo(${1:target}, ${1:args})
 
 snippet transition.scaleTo() "将显示对象缩放到指定比例，并返回 CCAction 动作对象。"
-	transition.scaleTo(target, ${1:args})
+	transition.scaleTo(${1:target}, ${1:args})
 
 snippet transition.sequence() "创建一个动作序列对象。"
 	transition.sequence(${1:actions})
 
 snippet transition.playAnimationOnce() "在显示对象上播放一次动画，并返回 CCAction 动作对象。"
-	transition.playAnimationOnce(target, animation, removeWhenFinished, onComplete, ${1:delay})
+	transition.playAnimationOnce(${1:target}, ${1:animation}, ${1:removeWhenFinished}, ${1:onComplete}, ${1:delay})
 
 snippet ui.newEditBox() "创建一个文字输入框，并返回 CCEditBox 对象。"
 	ui.newEditBox(${1:params})
