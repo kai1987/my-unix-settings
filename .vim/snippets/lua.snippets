@@ -7,27 +7,27 @@ snippet shebang "Shebang header" b
 	endsnippet
 
 snippet !fun(ction)?! "New function" br
-	function ${1:new_function}(${2:args})
+	function${2:new_function}(${2:args})
 		$0
 	end
 
 snippet forp "pair for loop" b
-	for ${1:name},${2:val} in pairs(${3:table_name}) do
+	for${2:name},${2:val} in pairs(${3:table_name}) do
 		$0
 	end
 
 snippet fori "ipair for foop" b
-	for ${1:idx},${2:val} in ipairs(${3:table_name}) do
+	for${2:idx},${2:val} in ipairs(${3:table_name}) do
 		$0
 	end
 
 snippet for "numeric for loop" b
-	for ${1:i}=${2:first},${3:last}${4/^..*/(?0:,:)/}${4:step} do
+	for${2:i}=${2:first},${3:last}${4/^..*/(?0:,:)/}${4:step} do
 		$0
 	end
 
 snippet local "local x = 1"
-	local ${1:x} = ${0:1}
+	local${2:x} = ${0:1}
 
 
 ##### quick-x support : start ####
@@ -90,7 +90,7 @@ snippet audio.preloadMusic() "quickx: 预载入一个音乐文件"
 	audio.preloadMusic(${1:filename})
 
 snippet audio.playMusic() "quickx: 播放音乐"
-	audio.playMusic(${1:filename}, ${1:isLoop})
+	audio.playMusic(${1:filename}, ${2:isLoop})
 
 snippet audio.stopMusic() "quickx: 停止播放音乐"
 	audio.stopMusic(${1:isReleaseData})
@@ -111,7 +111,7 @@ snippet audio.isMusicPlaying() "quickx: 检查当前是否正在播放音乐"
 	audio.isMusicPlaying()
 
 snippet audio.playSound() "quickx: 播放音效，并返回音效句柄"
-	audio.playSound(${1:filename}, ${1:isLoop})
+	audio.playSound(${1:filename}, ${2:isLoop})
 
 snippet audio.pauseSound() "quickx: 暂停指定的音效"
 	audio.pauseSound(${1:handle})
@@ -165,16 +165,16 @@ snippet cc.TOUCH_MODE_ONE_BY_ONE "quickx: - 单点触摸"
 	cc.TOUCH_MODE_ONE_BY_ONE
 
 snippet crypto.encryptAES256() "quickx: 使用 AES256 算法加密内容"
-	crypto.encryptAES256(${1:plaintext}, ${1:key})
+	crypto.encryptAES256(${1:plaintext}, ${2:key})
 
 snippet crypto.decryptAES256() "quickx: 使用 AES256 算法解密内容"
-	crypto.decryptAES256(${1:ciphertext}, ${1:key})
+	crypto.decryptAES256(${1:ciphertext}, ${2:key})
 
 snippet crypto.encryptXXTEA() "quickx: 使用 XXTEA 算法加密内容"
-	crypto.encryptXXTEA(${1:plaintext}, ${1:key})
+	crypto.encryptXXTEA(${1:plaintext}, ${2:key})
 
 snippet crypto.decryptXXTEA() "quickx: 使用 XXTEA 算法解密内容"
-	crypto.decryptXXTEA(${1:ciphertext}, ${1:key})
+	crypto.decryptXXTEA(${1:ciphertext}, ${2:key})
 
 snippet crypto.encodeBase64() "quickx: 使用 BASE64 算法编码内容"
 	crypto.encodeBase64(${1:plaintext})
@@ -183,19 +183,19 @@ snippet crypto.decodeBase64() "quickx: 使用 BASE64 算法解码内容"
 	crypto.decodeBase64(${1:ciphertext})
 
 snippet crypto.md5() "quickx: 计算内容的 MD5 码"
-	crypto.md5(${1:input}, ${1:isRawOutput})
+	crypto.md5(${1:input},${2:isRawOutput})
 
 snippet crypto.md5file() "quickx: 计算文件的 MD5 码"
 	crypto.md5file(${1:path})
 
 snippet DEPRECATED() "quickx: 定义一个作废的接口"
-	DEPRECATED(${1:f}, ${1:name}, ${1:newname})
+	DEPRECATED(${1:f},${2:name},${3:newname})
 
 snippet PRINT_DEPRECATED() "quickx: 显示作废信息"
 	PRINT_DEPRECATED(${1:msg})
 
 snippet printLog() "quickx: 打印调试信息"
-	printLog(${1:tag}, ${1:fmt})
+	printLog(${1:tag}, ${2:fmt})
 
 snippet printError() "quickx: 输出 tag 为 ERR 的调试信息"
 	printError(${1:fmt})
@@ -204,16 +204,16 @@ snippet printInfo() "quickx: 输出 tag 为 INFO 的调试信息"
 	printInfo(${1:fmt})
 
 snippet dump() "quickx: 输出值的内容"
-	dump(${1:value}, ${1:desciption}, ${1:nesting})
+	dump(${1:value},s${2:desciption},s${2:nesting})
 
 snippet display.newScene() "quickx: 创建一个新场景，并返回 CCScene 场景对象。"
 	display.newScene(${1:name})
 
 snippet display.wrapSceneWithTransition() "quickx: 用场景切换过渡效果包装场景对象，并返回场景过渡对象。"
-	display.wrapSceneWithTransition(${1:scene}, ${1:transitionType}, ${1:time}, ${1:more})
+	display.wrapSceneWithTransition(${1:scene},${2:transitionType},${3:time},${4:more})
 
 snippet display.replaceScene() "quickx: 切换到新场景"
-	display.replaceScene(${1:newScene}, ${1:transitionType}, ${1:time}, ${1:more})
+	display.replaceScene(${1:newScene},${2:transitionType},${3:time},${4:more})
 
 snippet display.getRunningScene() "quickx: 返回当前正在运行的场景对象"
 	display.getRunningScene()
@@ -237,61 +237,61 @@ snippet display.newClippingRegionNode() "quickx: 创建并返回一个 CCClippin
 	display.newClippingRegionNode(${1:rect})
 
 snippet display.newSprite() "quickx: 创建并返回一个 CCSprite 显示对象。"
-	display.newSprite(${1:filename}, ${1:x}, ${1:y}, ${1:params})
+	display.newSprite(${1:filename},${2:x},${3:y},${4:params})
 
 snippet display.newScale9Sprite() "quickx: 创建并返回一个 CCSprite9Scale 显示对象。"
-	display.newScale9Sprite(${1:filename}, ${1:x}, ${1:y}, ${1:size})
+	display.newScale9Sprite(${1:filename},${2:x},${3:y},${4:size})
 
 snippet display.newTilesSprite() "quickx: create a new tile sprit"
-	display.newTilesSprite(${1:filename}, ${1:rect})
+	display.newTilesSprite(${1:filename},${2:rect})
 
 snippet display.newTiledBatchNode() "quickx: create a tiled CCSpriteBatchNode, the image can not a POT file."
-	display.newTiledBatchNode(${1:filename}, ${1:plistFile}, ${1:size}, ${1:hPadding}, ${1:vPadding})
+	display.newTiledBatchNode(${1:filename},${2:plistFile},${3:size},${4:hPadding},${5:vPadding})
 
 snippet display.newMaskedSprite() "quickx: Create a masked sprite"
-	display.newMaskedSprite(${1:__mask}, ${1:__pic})
+	display.newMaskedSprite(${1:__mask},${2:__pic})
 
 snippet display.newFilteredSprite() "quickx: Create a Filtered Sprite"
-	display.newFilteredSprite(${1:filename}, ${1:filters}, ${1:params})
+	display.newFilteredSprite(${1:filename},${2:filters},${3:params})
 
 snippet display.newGraySprite() "quickx: Create a Gray Sprite by CCFilteredSprite"
-	display.newGraySprite(${1:filename}, ${1:params})
+	display.newGraySprite(${1:filename},${2:params})
 
 snippet display.newCircle() "quickx: 创建并返回一个 CCCircleShape （圆）对象。"
-	display.newCircle(${1:radius}, ${1:params})
+	display.newCircle(${1:radius},${2:params})
 
 snippet display.newRect() "quickx: 创建并返回一个 CCRectShape （矩形）对象。"
-	display.newRect(${1:width}, ${1:height}, ${1:params})
+	display.newRect(${1:width},${2:height},${3:params})
 
 snippet display.newPolygon() "quickx: 创建并返回一个 CCPolygonShape （多边形）对象。"
-	display.newPolygon(${1:points}, ${1:scale})
+	display.newPolygon(${1:points},${2:scale})
 
 snippet display.align() "quickx: 将指定的显示对象按照特定锚点对齐。"
-	display.align(${1:target}, ${1:anchorPoint}, ${1:x}, ${1:y})
+	display.align(${1:target},${2:anchorPoint},${3:x},${4:y})
 
 snippet display.addSpriteFramesWithFile() "quickx: 将指定的 Sprite Sheets 材质文件及其数据文件载入图像帧缓存。"
-	display.addSpriteFramesWithFile(${1:plistFilename}, ${1:image}, ${1:handler})
+	display.addSpriteFramesWithFile(${1:plistFilename},${2:image},${3:handler})
 
 snippet display.removeSpriteFramesWithFile() "quickx: 从内存中卸载 Sprite Sheets 材质和数据文件"
-	display.removeSpriteFramesWithFile(${1:plistFilename}, ${1:imageName})
+	display.removeSpriteFramesWithFile(${1:plistFilename},${2:imageName})
 
 snippet display.setTexturePixelFormat() "quickx: 设置材质格式。"
-	display.setTexturePixelFormat(${1:filename}, ${1:format})
+	display.setTexturePixelFormat(${1:filename},${2:format})
 
 snippet display.removeSpriteFrameByImageName() "quickx: 从图像帧缓存中删除一个图像。"
 	display.removeSpriteFrameByImageName(${1:imageName})
 
 snippet display.newBatchNode() "quickx: 从指定的图像文件创建并返回一个批量渲染对象。"
-	display.newBatchNode(${1:image}, ${1:capacity})
+	display.newBatchNode(${1:image},${2:capacity})
 
 snippet display.newSpriteFrame() "quickx: 创建并返回一个图像帧对象。"
 	display.newSpriteFrame(${1:frameName})
 
 snippet display.newFrames() "quickx: 以特定模式创建一个包含多个图像帧对象的数组。"
-	display.newFrames(${1:pattern}, ${1:begin}, ${1:length}, ${1:isReversed})
+	display.newFrames(${1:pattern},${2:begin},${3:length},${4:isReversed})
 
 snippet display.newAnimation() "quickx: 以包含图像帧的数组创建一个动画对象。"
-	display.newAnimation(${1:frames}, ${1:time})
+	display.newAnimation(${1:frames},${2:time})
 
 snippet display.getAnimationCache() "quickx: 取得以指定名字缓存的动画对象，如果不存在则返回 nil。"
 	display.getAnimationCache(${1:name})
@@ -303,7 +303,7 @@ snippet printf() "quickx: 输出格式化字符串"
 	printf(${1:fmt})
 
 snippet checknumber() "quickx: 检查并尝试转换为数值，如果无法转换则返回 0"
-	checknumber(${1:value}, ${1:base})
+	checknumber(${1:value},${2:base})
 
 snippet checkint() "quickx: 检查并尝试转换为整数，如果无法转换则返回 0"
 	checkint(${1:value})
@@ -315,22 +315,22 @@ snippet checktable() "quickx: 检查值是否是一个表格，如果不是则�
 	checktable(${1:value})
 
 snippet isset() "quickx: 如果表格中指定 key 的值为 nil，或者输入值不是表格，返回 false，否则返回 true"
-	isset(${1:hashtable}, ${1:key})
+	isset(${1:hashtable},${2:key})
 
 snippet clone() "quickx: 深度克隆一个值"
 	clone(${1:object})
 
 snippet class() "quickx: 创建一个类"
-	class(${1:classname}, ${1:super})
+	class(${1:classname},${2:super})
 
 snippet iskindof() "quickx: 如果对象是指定类或其子类的实例，返回 true，否则返回 false"
-	iskindof(${1:obj}, ${1:classname})
+	iskindof(${1:obj},${2:classname})
 
 snippet import() "quickx: 载入一个模块"
-	import(${1:moduleName}, ${1:currentModuleName})
+	import(${1:moduleName},${2:currentModuleName})
 
 snippet handler() "quickx: 将 Lua 对象及其方法包装为一个匿名函数"
-	handler(${1:obj}, ${1:method})
+	handler(${1:obj},${2:method})
 
 snippet math.newrandomseed() "quickx: 根据系统时间初始化随机数种子，让后续的 math.random() 返回更随机的值"
 	math.newrandomseed()
@@ -345,7 +345,7 @@ snippet io.readfile() "quickx: 读取文件内容，返回包含文件内容的�
 	io.readfile(${1:path})
 
 snippet io.writefile() "quickx: 以字符串内容写入文件，成功返回 true，失败返回 false"
-	io.writefile(${1:path}, ${1:content}, ${1:mode})
+	io.writefile(${1:path},${2:content},${3:mode})
 
 snippet io.pathinfo() "quickx: 拆分一个路径字符串，返回组成路径的各个部分"
 	io.pathinfo(${1:path})
@@ -363,25 +363,25 @@ snippet table.values() "quickx: 返回指定表格中的所有值"
 	table.values(${1:hashtable})
 
 snippet table.merge() "quickx: 将来源表格中所有键及其值复制到目标表格对象中，如果存在同名键，则覆盖其值"
-	table.merge(${1:dest}, ${1:src})
+	table.merge(${1:dest},${2:src})
 
 snippet table.insertto() "quickx: 在目标表格的指定位置插入来源表格，如果没有指定位置则连接两个表格"
-	table.insertto(${1:dest}, ${1:src}, ${1:begin})
+	table.insertto(${1:dest},${2:src},${3:begin})
 
 snippet table.keyof() "quickx: 从表格中查找指定值，返回其 key，如果没找到返回 nil"
-	table.keyof(${1:hashtable}, ${1:value})
+	table.keyof(${1:hashtable},${2:value})
 
 snippet table.removebyvalue() "quickx: 从表格中删除指定值，返回删除的值的个数"
-	table.removebyvalue(${1:array}, ${1:value}, ${1:removeall})
+	table.removebyvalue(${1:array},${2:value},${3:removeall})
 
 snippet table.map() "quickx: 对表格中每一个值执行一次指定的函数，并用函数返回值更新表格内容"
-	table.map(${1:t}, ${1:fn})
+	table.map(${1:t},${2:fn})
 
 snippet table.walk() "quickx: 对表格中每一个值执行一次指定的函数，但不改变表格内容"
-	table.walk(${1:t}, ${1:fn})
+	table.walk(${1:t},${2:fn})
 
 snippet table.filter() "quickx: 对表格中每一个值执行一次指定的函数，如果该函数返回 false，则对应的值会从表格中删除"
-	table.filter(${1:t}, ${1:fn})
+	table.filter(${1:t},${2:fn})
 
 snippet table.unique() "quickx: 遍历表格，确保其中的值唯一"
 	table.unique(${1:t})
@@ -399,7 +399,7 @@ snippet string.text2html() "quickx: 将字符串中的特殊字符和 \n 换行�
 	string.text2html(${1:input})
 
 snippet string.split() "quickx: 用指定字符或字符串分割输入字符串，返回包含分割结果的数组"
-	string.split(${1:input}, ${1:delimiter})
+	string.split(${1:input},${2:delimiter})
 
 snippet string.ltrim() "quickx: 去除输入字符串头部的空白字符，返回结果"
 	string.ltrim(${1:input})
@@ -462,43 +462,43 @@ snippet network.getInternetConnectionStatus() "quickx: 返回互联网连接状�
 	network.getInternetConnectionStatus()
 
 snippet network.createHTTPRequest() "quickx: 创建异步 HTTP 请求，并返回 CCHTTPRequest 对象。"
-	network.createHTTPRequest(${1:callback}, ${1:url}, ${1:method})
+	network.createHTTPRequest(${1:callback},${2:url},${3:method})
 
 snippet scheduler.scheduleUpdateGlobal() "quickx: 计划一个全局帧事件回调，并返回该计划的句柄。"
 	scheduler.scheduleUpdateGlobal(${1:listener})
 
 snippet scheduler.scheduleGlobal() "计划一个以指定时间间隔执行的全局事件回调，并返回该计划的句柄。"quickx:
-	scheduler.scheduleGlobal(${1:listener}, ${1:interval})
+	scheduler.scheduleGlobal(${1:listener},${2:interval})
 
 snippet scheduler.unscheduleGlobal() "quickx: 取消一个全局计划"
 	scheduler.unscheduleGlobal(${1:handle})
 
 snippet scheduler.performWithDelayGlobal() "quickx: 计划一个全局延时回调，并返回该计划的句柄。"
-	scheduler.performWithDelayGlobal(${1:listener}, ${1:time})
+	scheduler.performWithDelayGlobal(${1:listener},${2:time})
 
 snippet transition.newEasing() "quickx: 为图像创造效果"
-	transition.newEasing(${1:action}, ${1:easingName}, ${1:more})
+	transition.newEasing(${1:action},${2:easingName},${3:more})
 
 snippet transition.execute() "quickx: 执行一个动作效果"
-	transition.execute(${1:target}, ${1:action}, ${1:args})
+	transition.execute(${1:target},${2:action},${3:args})
 
 snippet transition.rotateTo() "quickx: 将显示对象旋转到指定角度，并返回 CCAction 动作对象。"
-	transition.rotateTo(${1:target}, ${1:args})
+	transition.rotateTo(${1:target},${2:args})
 
 snippet transition.moveTo() "quickx: 将显示对象移动到指定位置，并返回 CCAction 动作对象。"
-	transition.moveTo(${1:target}, ${1:args})
+	transition.moveTo(${1:target},${2:args})
 
 snippet transition.fadeTo() "quickx: 将显示对象的透明度改变为指定值，并返回 CCAction 动作对象。"
-	transition.fadeTo(${1:target}, ${1:args})
+	transition.fadeTo(${1:target},${2:args})
 
 snippet transition.scaleTo() "quickx: 将显示对象缩放到指定比例，并返回 CCAction 动作对象。"
-	transition.scaleTo(${1:target}, ${1:args})
+	transition.scaleTo(${1:target},${2:args})
 
 snippet transition.sequence() "quickx: 创建一个动作序列对象。"
 	transition.sequence(${1:actions})
 
 snippet transition.playAnimationOnce() "quickx: 在显示对象上播放一次动画，并返回 CCAction 动作对象。"
-	transition.playAnimationOnce(${1:target}, ${1:animation}, ${1:removeWhenFinished}, ${1:onComplete}, ${1:delay})
+	transition.playAnimationOnce(${1:target},${2:animation},${3:removeWhenFinished},${4:onComplete},${5:delay})
 
 snippet ui.newEditBox() "quickx: 创建一个文字输入框，并返回 CCEditBox 对象。"
 	ui.newEditBox(${1:params})
