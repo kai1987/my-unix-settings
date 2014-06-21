@@ -1,9 +1,9 @@
 set history=50   " keep 50 lines of command line history
 set showcmd   " display incomplete commands
 set showmode  " display the current editing mode
-set cursorcolumn "  高亮当前光标所在列
+"set cursorcolumn "  高亮当前光标所在列
 set cursorline "  高亮当前光标所在行
-hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=NONE guifg=NONE
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=NONE guifg=NONE
 
 
 " get rid of the F1 help
