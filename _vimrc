@@ -1,4 +1,3 @@
-set history=50   " keep 50 lines of command line history
 set showcmd   " display incomplete commands
 set showmode  " display the current editing mode
 "set cursorcolumn "  高亮当前光标所在列
@@ -73,23 +72,9 @@ Plugin 'xolox/vim-misc'  " required by lua.vim
 Plugin 'yi/lua.vim'  " Lua file type plug-in for the Vim text editor
 Plugin 'yi/QFixToggle'   " Toggle the visibility of the quickfix window
 Plugin 'ctrlp.vim'   " Fuzzy file, buffer, MRU, and tag finder with regexp support.
-" Plugin 'CRefVim'   " C reference
-" Plugin 'luarefvim'   " Lua reference
 Plugin 'Lokaltog/vim-powerline'   " The ultimate vim statusline utility.
-
-" install https://github.com/SirVer/ultisnips
-" Track the engine.
-" Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
+Plugin 'plasticboy/vim-markdown'  "Markdown Vim Mode http://plasticboy.com/markdown-vim-mode/
+let g:vim_markdown_folding_disabled=1
 
 " turn on omni completion of lua.vim
 let g:lua_complete_omni = 1
