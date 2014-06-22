@@ -5,7 +5,7 @@ ccs = ccs or {}
 
 function ccs.sendTriggerEvent(event)
     local triggerObjArr = ccs.TriggerMng.getInstance():get(event)
-    
+
     if nil == triggerObjArr then
         return
     end
@@ -106,7 +106,7 @@ end
 function ccs.TriggerObj:detect()
     if (not self._enable) or (table.getn(self._cons) == 0) then
         return true
-    end 
+    end
 
     local ret = true
     local obj = nil
@@ -355,7 +355,7 @@ end
 
 function ccs.TriggerMng:removeTriggerObj(id)
     local obj = self.getTriggerObj(id)
-    
+
     if nil == obj then
         return false
     end
@@ -371,3 +371,5 @@ end
 function ccs.TriggerMng:isEmpty()
     return (not (nil == self._eventTriggers)) or table.getn(self._eventTriggers) <= 0
 end
+
+return ccs

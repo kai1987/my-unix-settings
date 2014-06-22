@@ -110,9 +110,9 @@ if ! [[ -z "$QUICK_COCOS2DX_ROOT" ]]; then
 fi
 
 # NOTE: cocos2d-x-v3 中的 lua 接口文件在 lua.vim 的扫描时报错，所以我拿出来到 .vim/lua 目录下，做二次加工
-export LUA_PATH="~/.vim/lua/cocos2d-x-v3;${LUA_PATH}"
-#export COCOS2DX_V3_ROOT="/Users/ty/workspaces/cocos2d-x"
+export LUA_PATH="$(echo `cd ~/.vim/lua/cocos2d-x-v3/ && pwd`)/?.lua;${LUA_PATH}"
 
+#export COCOS2DX_V3_ROOT="/Users/ty/workspaces/cocos2d-x"
 # add cocos2d-x related lua files into LUA_PATH
 #if ! [[ -z "$COCOS2DX_V3_ROOT" ]]; then
  #export LUA_PATH="${COCOS2DX_V3_ROOT}/cocos/scripting/lua-bindings/script/?.lua;${LUA_PATH}"

@@ -282,7 +282,7 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 inoremap jj <ESC>
 
 " use Ctrl + Space for auto complition
-" inoremap <C-Space> <C-n>
+inoremap <C-Space> <C-n>
 
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -321,6 +321,9 @@ if executable('coffeetags')
             \ }
   endif
 
-"To enable auto-popup for this completion, add following function to plugin/snipMate.vim:
+" To enable auto-popup for this completion, add following function to plugin/snipMate.vim:
 let g:acp_behaviorSnipmateLength = 1
+
+" If non-zero, "preview" is added to 'completeopt' when auto-popup.
+let g:acp_completeoptPreview = 1
 
