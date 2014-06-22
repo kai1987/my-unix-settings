@@ -68,7 +68,7 @@ alias ns='npm start'
 alias npminstall='npm config set registry http://registry.cnpmjs.org && npm install && npm config set registry http://registry.npmjs.org'
 alias cnpm='npm config set registry http://registry.cnpmjs.org && echo set npm to cn registry'
 alias enpm='npm config set registry http://registry.npmjs.org && echo set npm to origin registry'
-
+alias json-format='cat $1 | python -mjson.tool'
 export PATH=/usr/local/bin:${PATH}
 
 # Functions
@@ -104,8 +104,17 @@ export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 # add by quick-cocos2d-x setup, DATE: 2014-06-13 TIME: 18:17:03
 export QUICK_COCOS2DX_ROOT="/Users/ty/workspaces/quick-cocos2d-x"
 
-# add cocos2d-x related lua files into LUA_PATH
+# add quick-cocos2d-x related lua files into LUA_PATH
 if ! [[ -z "$QUICK_COCOS2DX_ROOT" ]]; then
  export LUA_PATH="${QUICK_COCOS2DX_ROOT}/framework/?.lua;${LUA_PATH}"
 fi
+
+# NOTE: cocos2d-x-v3 中的 lua 接口文件在 lua.vim 的扫描时报错，所以我拿出来到 .vim/lua 目录下，做二次加工
+export LUA_PATH="~/.vim/lua/cocos2d-x-v3;${LUA_PATH}"
+#export COCOS2DX_V3_ROOT="/Users/ty/workspaces/cocos2d-x"
+
+# add cocos2d-x related lua files into LUA_PATH
+#if ! [[ -z "$COCOS2DX_V3_ROOT" ]]; then
+ #export LUA_PATH="${COCOS2DX_V3_ROOT}/cocos/scripting/lua-bindings/script/?.lua;${LUA_PATH}"
+#fi
 
