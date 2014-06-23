@@ -102,14 +102,15 @@ export PATH=$ANDROID_HOME:$PATH
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # add by quick-cocos2d-x setup, DATE: 2014-06-13 TIME: 18:17:03
-export QUICK_COCOS2DX_ROOT="$(echo `cd ~/workspaces/quick-cocos2d-x && pwd`)"
+export QUICK_COCOS2DX_ROOT=`cat ~/.QUICK_COCOS2DX_ROOT`
 
 # include php55 into path
 export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 
 # add quick-cocos2d-x related lua files into LUA_PATH
 if ! [[ -z "$QUICK_COCOS2DX_ROOT" ]]; then
- export LUA_PATH="${QUICK_COCOS2DX_ROOT}/framework/?.lua;${LUA_PATH}"
+  export LUA_PATH="${QUICK_COCOS2DX_ROOT}/framework/?.lua;${LUA_PATH}"
+  alias quick-x="open ${QUICK_COCOS2DX_ROOT}/player/mac/player.app/"
 fi
 
 # NOTE: cocos2d-x-v3 中的 lua 接口文件在 lua.vim 的扫描时报错，所以我拿出来到 .vim/lua 目录下，做二次加工
