@@ -17,12 +17,6 @@ set -o vi
 # Aliases
 # #######
 
-# Some example alias instructions
-# If these are enabled they will be used instead of any instructions
-# they may mask.  For example, alias rm='rm -i' will mask the rm
-# application.  To override the alias instruction use a \ before, ie
-# \rm will call the real rm not the alias.
-
 # Interactive operation...
 alias rm='rm -i'
 alias cp='cp -i'
@@ -54,11 +48,6 @@ alias mc='mc -c'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias up='cd ..'
-alias qci='svn ci . -m "" --no-auth-cache '
-alias sci='svn ci '
-alias svns='svn status'
-alias cdp='cap deploy'
-alias sup='svn up'
 alias g='git'
 alias gs='git status'
 alias ga='git add'
@@ -70,43 +59,27 @@ alias gsub-updat-all='git submodule foreach git submodule update'
 alias gpush='git push'
 alias gfetch='git fetch'
 alias gmerge='git merge'
-alias nginx-start='sudo /etc/init.d/nginx start'
-alias redis-to147='redis-cli -h 192.168.90.147 -p 6379'
-alias redis-to230='redis-cli -h 192.168.90.230 -p 6379'
-alias redis-monitor-147='redis-cli -h 192.168.90.147 monitor'
 alias mocha='mocha --reporter spec '
-alias ssh156='ssh modao@192.168.90.156'
-alias ssh166='ssh sgfdeployer@192.168.90.166'
-alias ssh2asset='ssh asset@192.168.90.156'
-alias ssh147='ssh modao@192.168.90.147'
-alias ssh162='ssh 192.168.90.162'
-alias ssh2m2='ssh modao@m2.sgfgames.com'
-alias ssh2darkmac-home='ssh imac@darkmac-home'
-alias ssh2gama='ssh modao@gamagama.cn'
-alias ssh149='ssh user@192.168.90.149'
-alias ssh154='ssh yi@192.168.90.154'
 alias ssh2r3ticketman='ssh gamadeployer@r3ticketman.sgfgames.com'
-alias ssh2ck1='ssh modao@ck1.sgfgames.com'
-
 alias xt='xtitle'
 alias grunt='grunt --stack'
-alias redis-to-r3-atf='redis-cli -h r3.sgfgames.com -p 6390'
 alias nw='npm run-script watch'
 alias ns='npm start'
 alias npminstall='npm config set registry http://registry.cnpmjs.org && npm install && npm config set registry http://registry.npmjs.org'
 alias cnpm='npm config set registry http://registry.cnpmjs.org && echo set npm to cn registry'
 alias enpm='npm config set registry http://registry.npmjs.org && echo set npm to origin registry'
-
+alias json-format='cat $1 | python -mjson.tool'
 export PATH=/usr/local/bin:${PATH}
-export SVN_EDITOR=vi
 
 # Functions
 # #########
 
+# 全文检索
 hint () { grep "$1" . -r | grep -v svn; }
+
+# 全文检索大小写不敏感
 hinti () { grep "$1" . -ir | grep -v svn; }
 
-# PS1="$(__svn_stat)[\[\033[32m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u\[\033[1;33m\] -> \[\033[0m\]"
 PS1="[\[\033[37m\]\w\[\033[0m\]]\n\[\033[1;36m\]\u@\h\[\033[1;33m\] -> \[\033[0m\]"
 
 if [ -f ~/.bashrc ]; then
@@ -131,4 +104,20 @@ export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 # add by quick-cocos2d-x setup, DATE: 2014-06-13 TIME: 18:17:03
 export QUICK_COCOS2DX_ROOT="/Users/ty/workspaces/quick-cocos2d-x"
 
+# include php55 into path
 export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+
+# add quick-cocos2d-x related lua files into LUA_PATH
+if ! [[ -z "$QUICK_COCOS2DX_ROOT" ]]; then
+ export LUA_PATH="${QUICK_COCOS2DX_ROOT}/framework/?.lua;${LUA_PATH}"
+fi
+
+# NOTE: cocos2d-x-v3 中的 lua 接口文件在 lua.vim 的扫描时报错，所以我拿出来到 .vim/lua 目录下，做二次加工
+export LUA_PATH="$(echo `cd ~/.vim/lua/cocos2d-x-v3/ && pwd`)/?.lua;${LUA_PATH}"
+
+#export COCOS2DX_V3_ROOT="/Users/ty/workspaces/cocos2d-x"
+# add cocos2d-x related lua files into LUA_PATH
+#if ! [[ -z "$COCOS2DX_V3_ROOT" ]]; then
+ #export LUA_PATH="${COCOS2DX_V3_ROOT}/cocos/scripting/lua-bindings/script/?.lua;${LUA_PATH}"
+#fi
+
