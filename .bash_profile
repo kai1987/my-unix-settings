@@ -131,3 +131,4 @@ export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 # add by quick-cocos2d-x setup, DATE: 2014-06-13 TIME: 18:17:03
 export QUICK_COCOS2DX_ROOT="/Users/ty/workspaces/quick-cocos2d-x"
 
+export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
