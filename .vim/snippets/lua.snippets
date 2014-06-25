@@ -26,8 +26,20 @@ snippet for "numeric for loop" b
 	end
 
 snippet local "local x = 1"
-	local${2:x} = ${0:1}
+	local${2:x} = ${1:1}
 
+snippet --- "function comment block"
+	--- ${1:function_name}
+	-- ${2:desc}
+
+snippet @param "comment param"
+	@param ${1:param} ${2:desc}
+
+snippet @return "comment return"
+	@return ${1:desc}
+
+snippet @see "comment see"
+	@see ${1:desc}
 
 ######### Quick-x Snippets : BEGIN ########################
 snippet audio.getMusicVolume() "quick-x(v2): 返回音乐的音量值"
