@@ -109,12 +109,22 @@ export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 
 # add quick-cocos2d-x related lua files into LUA_PATH
 if ! [[ -z "$QUICK_COCOS2DX_ROOT" ]]; then
-  export LUA_PATH="${QUICK_COCOS2DX_ROOT}/framework/?.lua;${LUA_PATH}"
+  VIM_LUA_PATH="${QUICK_COCOS2DX_ROOT}/framework/?.lua;${LUA_PATH}"
   alias quick-x="open ${QUICK_COCOS2DX_ROOT}/player/mac/player.app/"
 fi
 
 # NOTE: cocos2d-x-v3 中的 lua 接口文件在 lua.vim 的扫描时报错，所以我拿出来到 .vim/lua 目录下，做二次加工
-export LUA_PATH="$(echo `cd ~/.vim/lua/cocos2d-x-v3/ && pwd`)/?.lua;${LUA_PATH}"
+VIM_LUA_PATH="$(echo `cd ~/.vim/lua/cocos2d-x-v3/ && pwd`)/?.lua;${VIM_LUA_PATH}"
+
+# NOTE: 我发现还是不能轻易的使用系统全局变量 LUA_PATH，因为这会把 lua 的 package.path 冲掉。
+#       导致 luajit 编译不工作。所以我拿出来放到 vim 的执行之前，作为传入变量
+if ! [[ -z "$VIM_LUA_PATH" ]]; then
+  VI="$(echo `which vim`)"
+  alias vi="LUA_PATH=\"${VIM_LUA_PATH}\" ${VI}"
+  alias vim="LUA_PATH=\"${VIM_LUA_PATH}\" ${VI}"
+  VI="$(echo `which mvim`)"
+  alias mvim="LUA_PATH=\"${VIM_LUA_PATH}\" ${VI}"
+fi
 
 #export COCOS2DX_V3_ROOT="/Users/ty/workspaces/cocos2d-x"
 # add cocos2d-x related lua files into LUA_PATH

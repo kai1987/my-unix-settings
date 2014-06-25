@@ -23,6 +23,7 @@
   sbc = submodule foreach git co master
   dry-run = merge --no-commit --no-ff
   mt = mergetool
+	undo-commit = reset --soft HEAD^
 
 
 
