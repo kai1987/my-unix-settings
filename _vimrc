@@ -61,23 +61,23 @@ Plugin 'Tagbar'  " Display tags of the current file ordered by scope
 Plugin 'The-NERD-Commenter'  " A plugin that allows for easy commenting of code for many filetypes.
 "Plugin 'Shougo/neocomplcache.vim'  " Ultimate auto-completion system for Vim
 Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
-" Plugin 'jsbeautify'  " a javascript source code formatter, <leader> ff
-" Plugin 'luarefvim'  " Lua reference manual
-" Plugin 'vim-coffee-script'  " CoffeeScript support for vim
 Plugin 'kchmck/vim-coffee-script'  " CoffeeScript support for vim
 Plugin 'leafo/moonscript-vim'  " Adds syntax highlighting and indent support for MoonScript in vim.
 Plugin 'jade.vim'  " Vim Jade template engine syntax highlighting and indention
-" Plugin 'lua-support'  " Lua-IDE -- Write and run Lua-scripts using menus and hotkeys.
 Plugin 'xolox/vim-misc'  " required by lua.vim
 Plugin 'yi/lua.vim'  " Lua file type plug-in for the Vim text editor
+" turn on omni completion of lua.vim
+let g:lua_complete_omni = 1
+
 Plugin 'yi/QFixToggle'   " Toggle the visibility of the quickfix window
 Plugin 'ctrlp.vim'   " Fuzzy file, buffer, MRU, and tag finder with regexp support.
 Plugin 'Lokaltog/vim-powerline'   " The ultimate vim statusline utility.
 Plugin 'plasticboy/vim-markdown'  "Markdown Vim Mode http://plasticboy.com/markdown-vim-mode/
 let g:vim_markdown_folding_disabled=1
 
-" turn on omni completion of lua.vim
-let g:lua_complete_omni = 1
+Plugin 'elzr/vim-json'  " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
+
+
 let g:snippets_dir="~/.vim/snippets/"
 
 " All of your Plugins must be added before the following line

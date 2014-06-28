@@ -37,6 +37,9 @@ snippet @return "comment return"
 snippet @see "comment see"
 	@see ${1:desc}
 
+snippet callback? "init callback if exists"
+	callback ${1:nil} if type(callback) == "function"
+
 ######### Quick-x Snippets : BEGIN ########################
 snippet audio.getMusicVolume() "quick-x(v2): 返回音乐的音量值"
 	audio.getMusicVolume()
