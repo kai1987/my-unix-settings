@@ -1,7 +1,7 @@
 set showcmd   " display incomplete commands
 set showmode  " display the current editing mode
 "set cursorcolumn "  高亮当前光标所在列
-set cursorline "  高亮当前光标所在行
+"set cursorline "  高亮当前光标所在行
 "hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=NONE guifg=NONE
 
 
@@ -77,6 +77,7 @@ let g:vim_markdown_folding_disabled=1
 
 Plugin 'elzr/vim-json'  " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
 
+Plugin 'Lokaltog/vim-easymotion'
 
 let g:snippets_dir="~/.vim/snippets/"
 
