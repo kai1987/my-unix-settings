@@ -105,7 +105,7 @@ export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 export QUICK_COCOS2DX_ROOT=`cat ~/.QUICK_COCOS2DX_ROOT`
 
 # include php55 into path
-export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+#export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 
 # add quick-cocos2d-x related lua files into LUA_PATH
 if ! [[ -z "$QUICK_COCOS2DX_ROOT" ]]; then
@@ -125,13 +125,6 @@ if ! [[ -z "$VIM_LUA_PATH" ]]; then
   VI="$(echo `which mvim`)"
   alias mvim="LUA_PATH=\"${VIM_LUA_PATH}\" ${VI}"
 fi
-
-#export COCOS2DX_V3_ROOT="/Users/ty/workspaces/cocos2d-x"
-# add cocos2d-x related lua files into LUA_PATH
-#if ! [[ -z "$COCOS2DX_V3_ROOT" ]]; then
- #export LUA_PATH="${COCOS2DX_V3_ROOT}/cocos/scripting/lua-bindings/script/?.lua;${LUA_PATH}"
-#fi
-
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
 export COCOS_CONSOLE_ROOT=~/workspaces/cocos2d-x/tools/cocos2d-console/bin
