@@ -25,7 +25,7 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_macvim")
-    set guifont=YaHei\ Consolas\ Hybrid:h14
+    set guifont=YaHei\ Consolas\ Hybrid:h12
     "set guifont=Consolas:h14
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
@@ -78,6 +78,9 @@ let g:vim_markdown_folding_disabled=1
 Plugin 'elzr/vim-json'  " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
 
 Plugin 'Lokaltog/vim-easymotion'
+
+" CoffeeTags : https://github.com/lukaszkorecki/CoffeeTags
+Plugin 'lukaszkorecki/CoffeeTags'
 
 let g:snippets_dir="~/.vim/snippets/"
 
