@@ -62,14 +62,11 @@ Plugin 'The-NERD-Commenter'  " A plugin that allows for easy commenting of code 
 "Plugin 'Shougo/neocomplcache.vim'  " Ultimate auto-completion system for Vim
 Plugin 'AutoComplPop'  " Automatically opens popup menu for completions
 Plugin 'kchmck/vim-coffee-script'  " CoffeeScript support for vim
-Plugin 'leafo/moonscript-vim'  " Adds syntax highlighting and indent support for MoonScript in vim.
 Plugin 'jade.vim'  " Vim Jade template engine syntax highlighting and indention
 Plugin 'xolox/vim-misc'  " required by lua.vim
-Plugin 'yi/lua.vim'  " Lua file type plug-in for the Vim text editor
 " turn on omni completion of lua.vim
 let g:lua_complete_omni = 1
 
-Plugin 'yi/QFixToggle'   " Toggle the visibility of the quickfix window
 Plugin 'ctrlp.vim'   " Fuzzy file, buffer, MRU, and tag finder with regexp support.
 Plugin 'Lokaltog/vim-powerline'   " The ultimate vim statusline utility.
 Plugin 'plasticboy/vim-markdown'  "Markdown Vim Mode http://plasticboy.com/markdown-vim-mode/
@@ -80,7 +77,9 @@ Plugin 'elzr/vim-json'  " A better JSON for Vim: distinct highlighting of keywor
 Plugin 'Lokaltog/vim-easymotion'
 
 " CoffeeTags : https://github.com/lukaszkorecki/CoffeeTags
-Plugin 'lukaszkorecki/CoffeeTags'
+"Plugin 'lukaszkorecki/CoffeeTags'
+
+Plugin 'fatih/vim-go'
 
 let g:snippets_dir="~/.vim/snippets/"
 
@@ -103,7 +102,8 @@ set iskeyword+=_,$,@,%,#,- " 带有如下符号的单词不要被换行分割
 syntax on  " 语法高亮
 
 highlight StatusLine guifg=SlateBlue guibg=Yellow
-highlight StatusLineNC guifg=Gray guibg=White
+highlight StatusLineNC guifg=LightBlue guibg=White
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 文件设置
@@ -331,3 +331,4 @@ let g:acp_behaviorSnipmateLength = 1
 " If non-zero, "preview" is added to 'completeopt' when auto-popup.
 let g:acp_completeoptPreview = 1
 
+:color desert
