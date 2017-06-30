@@ -11,7 +11,7 @@ rm -rf ~/.vim && \
 rm -rf ~/temp/my-unix-settings && \
 mkdir -p ~/temp && \
 cd ~/temp && \
-git clone git@github.com:yi/my-unix-settings.git && \
+git clone git@github.com:kai1987/my-unix-settings.git && \
 rm -rf ~/.git && \
 mv ./my-unix-settings/.git ~ && \
 cd ~ && \
