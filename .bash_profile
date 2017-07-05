@@ -90,7 +90,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # enable autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+#[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # include git auto completion
 source ~/.git-completion.bash
@@ -105,16 +105,16 @@ export PATH=$ANDROID_HOME:$PATH
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # add by quick-cocos2d-x setup, DATE: 2014-06-13 TIME: 18:17:03
-export QUICK_COCOS2DX_ROOT=`cat ~/.QUICK_COCOS2DX_ROOT`
+#export QUICK_COCOS2DX_ROOT=`cat ~/.QUICK_COCOS2DX_ROOT`
 
 # include php55 into path
 #export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 
 # add quick-cocos2d-x related lua files into LUA_PATH
-if ! [[ -z "$QUICK_COCOS2DX_ROOT" ]]; then
-  VIM_LUA_PATH="${QUICK_COCOS2DX_ROOT}/framework/?.lua;${LUA_PATH}"
-  alias quick-x="open ${QUICK_COCOS2DX_ROOT}/player/mac/player.app/"
-fi
+#if ! [[ -z "$QUICK_COCOS2DX_ROOT" ]]; then
+  #VIM_LUA_PATH="${QUICK_COCOS2DX_ROOT}/framework/?.lua;${LUA_PATH}"
+  #alias quick-x="open ${QUICK_COCOS2DX_ROOT}/player/mac/player.app/"
+#fi
 
 # NOTE: cocos2d-x-v3 中的 lua 接口文件在 lua.vim 的扫描时报错，所以我拿出来到 .vim/lua 目录下，做二次加工
 VIM_LUA_PATH="$(echo `cd ~/.vim/lua/cocos2d-x-v3/ && pwd`)/?.lua;${VIM_LUA_PATH}"
@@ -130,19 +130,19 @@ if ! [[ -z "$VIM_LUA_PATH" ]]; then
 fi
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
-export COCOS_CONSOLE_ROOT=~/workspaces/cocos2d-x/tools/cocos2d-console/bin
-export PATH=$COCOS_CONSOLE_ROOT:$PATH
+#export COCOS_CONSOLE_ROOT=~/workspaces/cocos2d-x/tools/cocos2d-console/bin
+#export PATH=$COCOS_CONSOLE_ROOT:$PATH
 
 # Add environment variable NDK_ROOT for cocos2d-x
-export NDK_ROOT=~/android-ndk
-export PATH=$NDK_ROOT:$PATH
+#export NDK_ROOT=~/android-ndk
+#export PATH=$NDK_ROOT:$PATH
 
 # Add environment variable ANDROID_SDK_ROOT for cocos2d-x
-export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
-export PATH=$ANDROID_SDK_ROOT:$PATH
-export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+#export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
+#export PATH=$ANDROID_SDK_ROOT:$PATH
+#export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 
 # Add environment variable ANT_ROOT for cocos2d-x
-export ANT_ROOT=~/ant
-export PATH=$ANT_ROOT:$PATH
+#export ANT_ROOT=~/ant
+#export PATH=$ANT_ROOT:$PATH
 
