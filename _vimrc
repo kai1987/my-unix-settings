@@ -368,6 +368,8 @@ nnoremap <leader>a :cclose<CR>
 " Open :GoDeclsDir with ctrl-g
 nmap <C-g> :GoDeclsDir<cr>
 imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
+nmap gb :GoDefPop<cr>
+nmap gl :GoDefStack<cr>
 
 
 augroup go
