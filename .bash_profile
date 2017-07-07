@@ -90,7 +90,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # enable autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+#[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # include git auto completion
 source ~/.git-completion.bash
