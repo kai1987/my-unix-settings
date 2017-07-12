@@ -81,6 +81,7 @@ Plugin 'Lokaltog/vim-easymotion'
 
 Plugin 'fatih/vim-go'
 
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
@@ -414,3 +415,4 @@ function! s:build_go_files()
   endif
 endfunction
 
+let vim_markdown_preview_github=1
