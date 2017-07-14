@@ -81,7 +81,7 @@ Plugin 'Lokaltog/vim-easymotion'
 
 Plugin 'fatih/vim-go'
 
-
+Plugin 'uarun/vim-protobuf'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 Plugin 'auto-pairs'
@@ -90,6 +90,9 @@ Plugin 'SirVer/ultisnips'
 
 Plugin 'AndrewRadev/splitjoin.vim'
 
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+"Plugin 'Shougo/vimproc.vim'
 
 let g:snippets_dir="~/.vim/snippets/"
 
