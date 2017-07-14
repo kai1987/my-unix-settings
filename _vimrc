@@ -92,7 +92,7 @@ Plugin 'AndrewRadev/splitjoin.vim'
 
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
-"Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/vimproc.vim',{'build':{'linux':'make'}}
 
 let g:snippets_dir="~/.vim/snippets/"
 
