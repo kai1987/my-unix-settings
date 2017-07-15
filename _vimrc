@@ -83,6 +83,7 @@ Plugin 'fatih/vim-go'
 
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
+Plugin 'uarun/vim-protobuf'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 Plugin 'auto-pairs'
@@ -91,6 +92,10 @@ Plugin 'SirVer/ultisnips'
 
 Plugin 'AndrewRadev/splitjoin.vim'
 
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'Shougo/vimproc.vim',{'build':{'linux':'make'}}
+"Plugin 'vim-scripts/restore_view.vim'
 
 let g:snippets_dir="~/.vim/snippets/"
 
@@ -263,6 +268,7 @@ map <leader>p :tabp<CR>
 set nofoldenable
 set foldmethod=marker
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+"autocmd FileType go setlocal foldmethod=indent
 
 " remove all trailing spaces in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -348,6 +354,18 @@ set autowrite
 
 
 let g:go_fmt_command = "goimports"
+
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+
+
 " Set ultisnips triggers
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -417,3 +435,6 @@ endfunction
 
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='Google Chrome'
+set autoread                    " Automatically read changed files"
+
+
