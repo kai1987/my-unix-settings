@@ -346,7 +346,7 @@ let g:acp_behaviorSnipmateLength = 1
 " If non-zero, "preview" is added to 'completeopt' when auto-popup.
 let g:acp_completeoptPreview = 1
 
-:color desert
+":color desert
 highlight Search guibg=Purple guifg=NONE
 set autowrite
 
