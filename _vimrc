@@ -323,7 +323,6 @@ if &term =~ "xterm"
   endif
 endif
 
-colo pablo
 
 " add coffee tagbar support: https://github.com/lukaszkorecki/coffeetags
 if executable('coffeetags')
@@ -349,6 +348,9 @@ let g:acp_behaviorSnipmateLength = 1
 let g:acp_completeoptPreview = 1
 
 :color desert
+highlight Comment    ctermfg=8                        guifg=#808080
+
+
 highlight Search guibg=Purple guifg=NONE
 set autowrite
 
