@@ -348,7 +348,7 @@ let g:acp_behaviorSnipmateLength = 1
 let g:acp_completeoptPreview = 1
 
 :color desert
-highlight Comment    ctermfg=8                        guifg=#808080
+"highlight Comment    ctermfg=8                        guifg=#808080
 
 
 highlight Search guibg=Purple guifg=NONE
