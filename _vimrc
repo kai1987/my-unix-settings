@@ -81,6 +81,8 @@ Plugin 'Lokaltog/vim-easymotion'
 
 Plugin 'fatih/vim-go'
 
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
 Plugin 'uarun/vim-protobuf'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
@@ -321,7 +323,6 @@ if &term =~ "xterm"
   endif
 endif
 
-colo pablo
 
 " add coffee tagbar support: https://github.com/lukaszkorecki/coffeetags
 if executable('coffeetags')
@@ -346,7 +347,10 @@ let g:acp_behaviorSnipmateLength = 1
 " If non-zero, "preview" is added to 'completeopt' when auto-popup.
 let g:acp_completeoptPreview = 1
 
-":color desert
+:color desert
+highlight Comment    ctermfg=8                        guifg=#808080
+
+
 highlight Search guibg=Purple guifg=NONE
 set autowrite
 
@@ -431,6 +435,8 @@ function! s:build_go_files()
   endif
 endfunction
 
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Google Chrome'
 set autoread                    " Automatically read changed files"
 
 
