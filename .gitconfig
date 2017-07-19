@@ -32,3 +32,5 @@
 	editor = /usr/bin/vim
 [push]
 	default = simple
+[mergetool]
+	keepBackup = false
