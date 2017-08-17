@@ -77,7 +77,7 @@ Plugin 'elzr/vim-json'  " A better JSON for Vim: distinct highlighting of keywor
 Plugin 'Lokaltog/vim-easymotion'
 
 " CoffeeTags : https://github.com/lukaszkorecki/CoffeeTags
-"Plugin 'lukaszkorecki/CoffeeTags'
+Plugin 'lukaszkorecki/CoffeeTags'
 
 Plugin 'fatih/vim-go'
 
@@ -96,6 +96,9 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'Shougo/vimproc.vim',{'build':{'linux':'make'}}
 "Plugin 'vim-scripts/restore_view.vim'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'sebdah/vim-delve'
+Plugin 'christoomey/vim-system-copy'
 
 let g:snippets_dir="~/.vim/snippets/"
 
@@ -438,5 +441,4 @@ endfunction
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='Google Chrome'
 set autoread                    " Automatically read changed files"
-
 
