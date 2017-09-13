@@ -1,6 +1,6 @@
 # Snippets for Go
 
-priority -10
+#priority -10
 
 # shorthand variable declaration
 snippet : "v := value"
