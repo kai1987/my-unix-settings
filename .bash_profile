@@ -60,10 +60,6 @@ alias gpush='git push'
 alias gfetch='git fetch'
 alias gmerge='git merge'
 alias mocha='mocha --reporter spec '
-alias ssh2r3ticketman='ssh gamadeployer@r3ticketman.sgfgames.com'
-alias ssh156='ssh modao@192.168.90.156'
-alias ssh2alirdz='ssh modao@alimrzhcn.sgfgames.com'
-alias ssh2ck2='ssh -p 58422 modao@ck2.sgfgames.com'
 alias xt='xtitle'
 alias grunt='grunt --stack'
 alias nw='npm run-script watch'
@@ -99,10 +95,10 @@ source ~/.git-completion.bash
 #source /usr/local/etc/bash_completion.d
 
 # Add environment variable ANDROID_SDK_ROOT for cocos2d-x
-export ANDROID_HOME=/usr/local/opt/android-sdk
+#export ANDROID_HOME=/usr/local/opt/android-sdk
 
-export PATH=$ANDROID_HOME:$PATH
-export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+#export PATH=$ANDROID_HOME:$PATH
+#export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # add by quick-cocos2d-x setup, DATE: 2014-06-13 TIME: 18:17:03
 #export QUICK_COCOS2DX_ROOT=`cat ~/.QUICK_COCOS2DX_ROOT`
@@ -117,17 +113,17 @@ export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 #fi
 
 # NOTE: cocos2d-x-v3 中的 lua 接口文件在 lua.vim 的扫描时报错，所以我拿出来到 .vim/lua 目录下，做二次加工
-VIM_LUA_PATH="$(echo `cd ~/.vim/lua/cocos2d-x-v3/ && pwd`)/?.lua;${VIM_LUA_PATH}"
+#VIM_LUA_PATH="$(echo `cd ~/.vim/lua/cocos2d-x-v3/ && pwd`)/?.lua;${VIM_LUA_PATH}"
 
 # NOTE: 我发现还是不能轻易的使用系统全局变量 LUA_PATH，因为这会把 lua 的 package.path 冲掉。
 #       导致 luajit 编译不工作。所以我拿出来放到 vim 的执行之前，作为传入变量
-if ! [[ -z "$VIM_LUA_PATH" ]]; then
-  VI="$(echo `which vim`)"
-  alias vi="LUA_PATH=\"${VIM_LUA_PATH}\" ${VI}"
-  alias vim="LUA_PATH=\"${VIM_LUA_PATH}\" ${VI}"
-  VI="$(echo `which mvim`)"
-  alias mvim="LUA_PATH=\"${VIM_LUA_PATH}\" ${VI}"
-fi
+#if ! [[ -z "$VIM_LUA_PATH" ]]; then
+  #VI="$(echo `which vim`)"
+  #alias vi="LUA_PATH=\"${VIM_LUA_PATH}\" ${VI}"
+  #alias vim="LUA_PATH=\"${VIM_LUA_PATH}\" ${VI}"
+  #VI="$(echo `which mvim`)"
+  #alias mvim="LUA_PATH=\"${VIM_LUA_PATH}\" ${VI}"
+#fi
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
 #export COCOS_CONSOLE_ROOT=~/workspaces/cocos2d-x/tools/cocos2d-console/bin

@@ -96,9 +96,13 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'Shougo/vimproc.vim',{'build':{'linux':'make'}}
 "Plugin 'vim-scripts/restore_view.vim'
+Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'sebdah/vim-delve'
 Plugin 'christoomey/vim-system-copy'
+
+
+Plugin 'rhysd/vim-clang-format'
 
 let g:snippets_dir="~/.vim/snippets/"
 
@@ -442,3 +446,31 @@ let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='Google Chrome'
 set autoread                    " Automatically read changed files"
 
+
+"vimshell config start
+" Initialize execute file list.
+
+map <F8> :VimShell<CR>
+let g:vimshell_execute_file_list = {}
+call vimshell#set_execute_file('txt,vim,c,h,cpp,d,xml,java', 'vim')
+let g:vimshell_execute_file_list['rb'] = 'ruby'
+let g:vimshell_execute_file_list['coffee'] = 'coffee'
+let g:vimshell_execute_file_list['pl'] = 'perl'
+let g:vimshell_execute_file_list['py'] = 'python'
+call vimshell#set_execute_file('html,xhtml', 'gexe chrome')
+let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+" use auto jump in vimshell
+call vimshell#set_alias('j', ':Unite -buffer-name=files
+      \ -default-action=lcd -no-split -input=$$args directory_mru')
+
+"vimshell config end
+
+" clang_format config
+let g:clang_format#style_options = {
+            \ "AlignConsecutiveAssignments" : "true",
+            \ "AlignTrailingComments" : "true",
+            \ "AlignConsecutiveDeclarations" : "true"}
+
+"autocmd FileType c,cpp,objc,proto ClangFormatAutoEnable
+autocmd FileType c,cpp,objc,proto,const nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc,proto,const vnoremap <buffer><Leader>f :ClangFormat<CR>
