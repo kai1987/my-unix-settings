@@ -5,3 +5,4 @@
 !_vimrc
 !.vim/snippets/
 !.vim/snippets/*
+!.tmux.conf
