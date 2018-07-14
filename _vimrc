@@ -9,6 +9,8 @@ set showmode  " display the current editing mode
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+:nmap <F1> :echo<CR>
+:imap <F1> <C-o>:echo<CR>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -69,19 +71,19 @@ let g:lua_complete_omni = 1
 
 Plugin 'ctrlp.vim'   " Fuzzy file, buffer, MRU, and tag finder with regexp support.
 Plugin 'Lokaltog/vim-powerline'   " The ultimate vim statusline utility.
-Plugin 'plasticboy/vim-markdown'  "Markdown Vim Mode http://plasticboy.com/markdown-vim-mode/
-let g:vim_markdown_folding_disabled=1
+"Plugin 'plasticboy/vim-markdown'  "Markdown Vim Mode http://plasticboy.com/markdown-vim-mode/
+"let g:vim_markdown_folding_disabled=1
 
 Plugin 'elzr/vim-json'  " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
 
-Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Lokaltog/vim-easymotion'
 
 " CoffeeTags : https://github.com/lukaszkorecki/CoffeeTags
 Plugin 'lukaszkorecki/CoffeeTags'
 
 Plugin 'fatih/vim-go'
 
-Plugin 'JamshedVesuna/vim-markdown-preview'
+"Plugin 'JamshedVesuna/vim-markdown-preview'
 
 Plugin 'uarun/vim-protobuf'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
@@ -103,6 +105,11 @@ Plugin 'christoomey/vim-system-copy'
 
 
 Plugin 'rhysd/vim-clang-format'
+Plugin 'tpope/vim-rhubarb'
+
+Plugin 'MikeCoder/markdown-preview.vim'
+Plugin 'sirjofri/vim-glissues'
+Plugin 'shumphrey/fugitive-gitlab.vim'
 
 let g:snippets_dir="~/.vim/snippets/"
 
@@ -271,6 +278,8 @@ map <leader>t :tabnew<CR>
 map <leader>n :tabn<CR>
 map <leader>p :tabp<CR>
 
+map <leader>gg %:p:h<CR>
+
 " 用空格键来开关折叠
 set nofoldenable
 set foldmethod=marker
@@ -288,6 +297,10 @@ nmap <F2> :QFix<CR>
 
 " 用 F3 打开文件快速查找
 nmap <F3> :CtrlP<CR>
+
+" 用 F4 文件内快速查找
+nmap <silent> <F4> :Grep<CR>
+
 
 " 用 F5 作为tag bar 的快捷键
 nmap <F5> :TagbarToggle<CR>
@@ -312,7 +325,16 @@ inoremap jj <ESC>
 " use Ctrl + Space for auto complition
 inoremap <C-Space> <C-n>
 
-autocmd BufWritePre * :%s/\s\+$//e
+fun! StripTrailingWhitespace()
+    " Don't strip on these filetypes
+    if &ft =~ 'markdown'
+        return
+    endif
+    %s/\s\+$//e
+endfun
+
+autocmd BufWritePre * call StripTrailingWhitespace()
+"autocmd BufWritePre * :%s/\s\+$//e
 
 "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
@@ -417,6 +439,9 @@ augroup go
   " :GoMetaLinter
   autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
 
+  " :GoRename
+  autocmd FileType go nmap <Leader>m <Plug>(go-rename)
+
   " :GoDef but opens in a vertical split
   autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
   " :GoDef but opens in a horizontal split
@@ -442,8 +467,9 @@ function! s:build_go_files()
   endif
 endfunction
 
-let vim_markdown_preview_github=1
-let vim_markdown_preview_browser='Google Chrome'
+map <leader>m :MarkdownPreview GitHub<CR>
+"let vim_markdown_preview_github=1
+"let vim_markdown_preview_browser='Google Chrome'
 set autoread                    " Automatically read changed files"
 
 
@@ -451,6 +477,7 @@ set autoread                    " Automatically read changed files"
 " Initialize execute file list.
 
 map <F8> :VimShell<CR>
+map <F9> :VimShellExecute<CR>
 let g:vimshell_execute_file_list = {}
 call vimshell#set_execute_file('txt,vim,c,h,cpp,d,xml,java', 'vim')
 let g:vimshell_execute_file_list['rb'] = 'ruby'
@@ -472,5 +499,18 @@ let g:clang_format#style_options = {
             \ "AlignConsecutiveDeclarations" : "true"}
 
 "autocmd FileType c,cpp,objc,proto ClangFormatAutoEnable
-autocmd FileType c,cpp,objc,proto,const nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc,proto,const vnoremap <buffer><Leader>f :ClangFormat<CR>
+autocmd FileType c,cpp,objc,proto,const,conf nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc,proto,const,conf vnoremap <buffer><Leader>f :ClangFormat<CR>
+
+"this is for fugitive-gitlab
+let g:fugitive_gitlab_domains = ['https://gitlab-sz.hoodinn.com']
+
+"this is for vim-glissues
+let g:gitlab_token = "Az679pVY1LV_AbLZqraS"
+let g:gitlab_server = "https://gitlab-sz.hoodinn.com"
+if filereadable(".settings.vim")
+  source .settings.vim
+endif
+
+let g:ackprg = 'ag --vimgrep'
+let g:vim_json_warnings=1
