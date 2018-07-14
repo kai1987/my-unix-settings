@@ -2,7 +2,7 @@
 	name = Liang Kai
 	email = liangkai@hoodin.com
 [merge]
-	tool = vimdiff
+	tool = kdiff3
 [alias]
 	co = checkout
 	br = branch
@@ -30,7 +30,13 @@
 
 [core]
 	editor = /usr/bin/vim
+	excludesfile = /home/kai/.gitignore
 [push]
 	default = simple
 [mergetool]
 	keepBackup = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

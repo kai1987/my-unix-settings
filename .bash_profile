@@ -142,3 +142,5 @@ source ~/.git-completion.bash
 #export ANT_ROOT=~/ant
 #export PATH=$ANT_ROOT:$PATH
 
+export SHELL=/bin/zsh
+exec /bin/zsh -l
